@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  myfirstpod
+  namespace: default
+  labels:
+    app:  myfirstpod
+spec:
+  selector:
+    matchLabels:
+      app: myfirstpod
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app:  myfirstpod
+    spec:
+      containers:
+      - name:  myfirstpod
+        image:  httpd:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort:  80
+          name:  myfirstpod
+      restartPolicy: Always

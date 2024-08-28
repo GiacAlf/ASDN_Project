@@ -8,25 +8,38 @@ sudo visudo
 aggiungere alla fine della riga "Default..": :/snap/bin e salvare.
 
 COMANDI KUBERNETES:
-sudo microk8s kubectl get pods: fa vedere i pods
-sudo microk8s kubectl get pods -A: fa vedere i pods di tutti i namespaces: 
+> sudo microk8s kubectl get pods: fa vedere i pods
+> sudo microk8s kubectl get pods -A: fa vedere i pods di tutti i namespaces: 
 di default ce ne sono 3: controllers, node e coredns (risolve le queries del pod). Il node è master e worker contemporaneamente. 
+
+add-node: di default è master sennò è worker
 
 DEPLOY:
 imperative mode: devo spere esattamente come stanno le cose, ma non lo posso sapere lo stato di kubernetes ad ogni istante;
 declarative mode: la giusta via di farlo:
 
-sudo microk8s kubectl apply -f <Yaml file name>: per creare il pod. Il return del terminale dice che il pod è creato ma non 
+> sudo microk8s kubectl apply -f <POD YAML FILE NAME>: per creare un pod. Il return del terminale dice che il pod è creato ma non 
 so bene quando, è la kubernete API che mi risponde, invece con docker non succede e lo so subito. devo scoprirlo con get pods.
 
-sudo microk8s kubectl get pods: si riferisce al namespace:default che sta nel yml file.
-
+> sudo microk8s kubectl apply -f <DEPLOY YAML FILE NAME>: crea il deploy
+> sudo microk8s kubectl get pods: si riferisce al namespace:default che sta nel yml file.
+> sudo microk8s kubectl exec -it <POD NAME> sh [o bash]: per entrare nel pod
+> sudo microk8s kubectl get deployments: fa vedere solo i pod creati con un deploy (cioè kind:Deployment)
+INFO UTILI:
 il deployment è un oggetto un pò più complicato del pod.
-
 questo server per il DevOps: aggiorna le nuove togliendo le vecchie passo passo a quella percentuale.
 strategy:
     rollingUpdate:
       maxSurge: 25%
       maxUnavailable: 25%
     type: RollingUpdate
+
+I pod creati espongono le porte 80 ma alla network virtuale di kubernetes; mi serviranno i service per poterci accedere.
+(invece con docker quest'ultimo crea subito una rete di collegamente con la macchina)
+
+cluster Kubernetes: costituito da più nodi
+
+nodo: macchina fisica o virtuale che esegue pod, come quelli di big data
+pod: è la più piccola unità eseguibile che può contenere più di un container, volendo di docker
+un deploy è meglio di fare un singolo pod perchè posso gestirlo ad alto livello, ad esempio con le repliche
 
