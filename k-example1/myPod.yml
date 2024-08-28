@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: "myfirstpod"
+  name: "myfirstservice"
   namespace: default
   labels:
-    app: "myfirstpod"
+    app: "myfirstservice"
 spec:
   containers:
-  - name: myfirstpod
+  - name: myfirstservice
     image: "nginx:latest"
     resources:
       limits:
