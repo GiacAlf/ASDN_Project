@@ -1,0 +1,8 @@
+SETTAGGI GIT:
+
+git config --global user.email "giacomoalfani@gmail.com"
+git config --global user.name "GiacAlf"
+
+remote name repository: asdn_local
+
+repository url: https://github.com/GiacAlf/ASDN_project

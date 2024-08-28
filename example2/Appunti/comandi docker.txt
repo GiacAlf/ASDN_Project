@@ -1,0 +1,26 @@
+COMANDI DOCKER:
+sudo docker ps: fa vedere i container running
+sudo docker ps -a: container running e in stop
+sudo docker images: fa veder le immagini create
+sudo docker inspect <CONTAINER NAME/ID>: fa vedere tutto del container, specialmente la "Network"
+sudo docker stop <CONTAINER NAME>: stoppa il container
+sudo docker rm <CONTAINER ID>: rimuove il container in stop
+sudo docker rm <CONTAINER ID>: rimuove il container in stop
+sudo docker exec -it <CONTAINER NAME> [/bin/]sh: fa partire il terminale del container
+
+COMANDI DOCKER OPERATIVI:
+sudo docker build -t <NOME IMAGE> . : crea immagine personalizzata
+sudo docker run [--rm] [-d] -p 8080:80 <NOME IMAGE>: crea il container a partire dall'immagine fornita col nome (non mettendo "-d" ho il terminale lockato nell'output del container). La prima porta è la mia, del localhsot del browser, la seconda è quella in cui sto facendo forwardind del traffico; [--rm] elimina il container appena stoppato. Senza [-p] lo posso contattare solo con l'IP (tipo 172.17.0.2) e non con localhost.
+
+COMANDI LINUX UTILI:
+ip a: vedi gli ip address delle reti presenti
+sudo systemctl stop apache2: nel caso dovesse darmi fastidio apache2
+
+INFO UTILI:
+rete del bridge creato da docker: 172.17.0.1. Il container ha IP 172.17.0.2, quello che creo.
+
+PASSI DA FARE:
+1: creo il Dockerfile: dentro ci metto l'immagine di partenza (FROM) e altre cose da "fare" e "copiare" (COPY ecc);
+2: faccio il docker build da terminale in quella cartella, così creo l'immagine personalizzata;
+3: faccio il docker run per creare il container.
+
