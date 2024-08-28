@@ -7,7 +7,6 @@ sudo visudo
 aggiungere alla fine della riga "Default..": :/snap/bin e salvare.
 
 COMANDI KUBERNETES:
-
 sudo microk8s kubectl get pods: fa vedere i pods
 sudo microk8s kubectl get pods -A: fa vedere i pods di tutti i namespaces: di 
 default ce ne sono 3: controllers, node e coredns (risolve le queries del pod). Il node è master e worker contemporaneamente. 
