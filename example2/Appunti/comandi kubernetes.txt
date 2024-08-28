@@ -16,4 +16,17 @@ DEPLOY:
 imperative mode: devo spere esattamente come stanno le cose, ma non lo posso sapere lo stato di kubernetes ad ogni istante;
 declarative mode: la giusta via di farlo:
 
-sudo microk8s kubectl apply -f <Yaml file name>
+sudo microk8s kubectl apply -f <Yaml file name>: per creare il pod. Il return del terminale dice che il pod è creato ma non 
+so bene quando, è la kubernete API che mi risponde, invece con docker non succede e lo so subito. devo scoprirlo con get pods.
+
+sudo microk8s kubectl get pods: si riferisce al namespace:default che sta nel yml file.
+
+il deployment è un oggetto un pò più complicato del pod.
+
+questo server per il DevOps: aggiorna le nuove togliendo le vecchie passo passo a quella percentuale.
+strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+
