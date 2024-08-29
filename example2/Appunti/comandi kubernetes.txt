@@ -22,14 +22,23 @@ declarative mode: la giusta via di farlo:
 so bene quando, è la kubernete API che mi risponde, invece con docker non succede e lo so subito. devo scoprirlo con get pods.
 
 > sudo microk8s kubectl apply -f <DEPLOY YAML FILE NAME>: crea il deploy
+> sudo microk8s kubectl delete -f <DEPLOY YAML FILE NAME>: cancella il deploy
+> sudo microk8s kubectl apply -f . : runna tutti i file yaml della cartella specificata
 > sudo microk8s kubectl get pods: si riferisce al namespace:default che sta nel yml file.
-> sudo microk8s kubectl exec -it <POD NAME> sh [o bash]: per entrare nel pod
+[> sudo microk8s kubectl exec -it <POD NAME> sh [o bash]: per entrare nel pod] --> deprecato
+> sudo microk8s kubectl exec -it <POD NAME> -- sh: quello corretto al momento
+
 > sudo microk8s kubectl get deployments: fa vedere solo i pod creati con un deploy (cioè kind:Deployment)
 > sudo microk8s kubectl get service: vedo i servizi. External-ip è l'ip per raggiunngerli dall'esterno
 > sudo microk8s kubectl get service -o wide: vedo anche il selector così
 > sudo microk8s kubectl get nodes [-o wide]: fa vedere i nodi
 > sudo microk8s kubectl describe pod <POD NAME>
 > sudo microk8s kubectl get all [-A]: fa un get di tutto!!!!
+
+> microk8s: ti dice quali sono i comandi possibili:
+        reset: che ti fa stoppare il cluster
+        status: vedo lo stato mi microk8s e i vari addons abilitati e non (sono kubernetes applications)
+        addons: installo da microk8s gli addons senza doverlo fare manualmente da terminale
 
 poi creo dei services: è la netork component che inoltra traffico al giusto pod
 devo cambiare il nome al pod sennò il service non riesce a trovarlo col selector
@@ -47,7 +56,8 @@ I pod creati espongono le porte 80 ma alla network virtuale di kubernetes; mi se
 (invece con docker quest'ultimo crea subito una rete di collegamente con la macchina)
 
 cluster Kubernetes: costituito da più nodi
-nodo: macchina fisica o virtuale che esegue pod, come quelli di big data. Quandi riparte la macchina ripartono tutti 
+nodo: macchina fisica o virtuale che esegue pod, come quelli di big data. Quandi riparte la macchina ripartono tutti, anche 
+se con microk8s posso fare "add-node"
 i pod. Se ho un multicluster e spengo un nodo i pod si spostano su altri nodi
 pod: è la più piccola unità eseguibile che può contenere più di un container, volendo di docker
 un deploy è meglio di fare un singolo pod perchè posso gestirlo ad alto livello, ad esempio con le repliche
@@ -55,3 +65,10 @@ un deploy è meglio di fare un singolo pod perchè posso gestirlo ad alto livell
 il selector punta ad un nome che deve esistere, tipo nome del pod o altro.
 
 il container di default di k8s è containerd
+
+Ogni podo ha un IP address diverso del tipo 10.1.92....
+Entrato nel podo posso controllare se c'è apt ed installare cose tipo curl
+Per far comunicar ei pod tra loro uso il service creato, vedendo il suo IP
+La "label" nel file yaml di un pod è importante perchè kubernetes la usa per identificare quale è il pod collegato al service, lo 
+cerca in base a cosa scrivo nel selector (cioè il selector del service deve matchare una ed una sola label di un pod, sennò rimbalzo 
+tra quei pod con lo stesso nome)

@@ -6,7 +6,7 @@ metadata:
 spec:
   selector:
     app: myfirstservice
-  type: ClusterIP
+  type: NodePort
   sessionAffinity: None
   sessionAffinityConfig:
     clientIP:
@@ -14,8 +14,8 @@ spec:
   ports:
   - name: myfirstservice
     protocol: TCP
-    port: 80
-    targetPort: 80
+    port: 80 # porta che il service espone all'interno della rete virtualizzata di kubernetes
+    targetPort: 80 # porta esposta dal container dentro il pod verso la rete virtualizzata di kubernetes
     # If you set the `spec.type` field to `NodePort` and you want a specific port number,
     # you can specify a value in the `spec.ports[*].nodePort` field.
-    #nodePort: 80
+    nodePort: 30080 # porta che espongo al mondo esterno (quindi me lo ritrovo sulla destra e non a sinistra come per docker)
