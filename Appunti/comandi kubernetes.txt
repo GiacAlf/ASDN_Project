@@ -40,7 +40,7 @@ so bene quando, è la kubernete API che mi risponde, invece con docker non succe
         status: vedo lo stato mi microk8s e i vari addons abilitati e non (sono kubernetes applications)
         addons: installo da microk8s gli addons senza doverlo fare manualmente da terminale
 
-poi creo dei services: è la netork component che inoltra traffico al giusto pod
+poi creo dei services: è la network component che inoltra traffico al giusto pod
 devo cambiare il nome al pod sennò il service non riesce a trovarlo col selector
 
 INFO UTILI:
