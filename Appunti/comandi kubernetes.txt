@@ -65,6 +65,7 @@ un deploy è meglio di fare un singolo pod perchè posso gestirlo ad alto livell
 il selector punta ad un nome che deve esistere, tipo nome del pod o altro.
 
 il container di default di k8s è containerd
+httpd: è l'immagine di apache2 come web server
 
 Ogni podo ha un IP address diverso del tipo 10.1.92....
 Entrato nel podo posso controllare se c'è apt ed installare cose tipo curl

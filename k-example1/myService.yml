@@ -18,4 +18,4 @@ spec:
     targetPort: 80 # porta esposta dal container dentro il pod verso la rete virtualizzata di kubernetes
     # If you set the `spec.type` field to `NodePort` and you want a specific port number,
     # you can specify a value in the `spec.ports[*].nodePort` field.
-    nodePort: 30080 # porta che espongo al mondo esterno (quindi me lo ritrovo sulla destra e non a sinistra come per docker)
+    nodePort: 30080 # porta che espongo al mondo esterno con localhost quindi (quindi me lo ritrovo sulla destra e non a sinistra come per docker)
