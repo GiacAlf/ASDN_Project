@@ -87,4 +87,5 @@ Per rinominarla basta ribuildo, perchè così ne creo una nuova.
 > sudo docker push giacomoalfani/mywebserver: per pusharla su dockerhub
 
 > sudo microk8s kubectl enable dashboard: installa la dashboard di kubernetes
-> sudo microk8s dashboard-proxy: avvia la dashboard, poi si deve copiare il link da raggiungere
+> sudo microk8s dashboard-proxy: avvia la dashboard, poi si deve copiare il link da raggiungere in cui inserire il token stampato 
+su cli, meglio lanciare il comando dalla directory dove sono i file di deployment
