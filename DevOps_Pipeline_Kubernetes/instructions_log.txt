@@ -26,13 +26,26 @@ RUN apt-get update && apt-get install -y \
 run container
 
 
-DA QUi':
+INSTALLAZIONE KIND:
 
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-amd64
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
+sudo rm /usr/local/bin/kind # per sicurezza
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 
 Per creare il cluster Kind:
-kind create cluster --config kind-config.yaml
+sudo kind create cluster --config kind-config.yaml
+sudo kind delete cluster: rimuove tutti i nodi del cluster
 
+sudo kind get nodes
+sudo kind get clusters
+sudo kind export kubeconfig --name kind: se kubectl non punta al cluster kind
+sudo kubectl config get-contexts: per vedere se punta a kind
+sudo kubectl config use-context kind-kind: per usare il giusto contesto
+
+sudo kubectl cluster-info --context kind-kind: per vedere il cluster
+sudo kubectl get nodes: vedi i nodi
+
+
+sudo snap install kubectl --classic: installa kubectl
 
