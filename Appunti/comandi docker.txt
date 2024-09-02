@@ -12,6 +12,11 @@ COMANDI DOCKER OPERATIVI:
 sudo docker build -t <NOME IMAGE> . : crea immagine personalizzata
 sudo docker run [--rm] [-d] -p 8080:80 <NOME IMAGE>: crea il container a partire dall'immagine fornita col nome (non mettendo "-d" ho il terminale lockato nell'output del container). La prima porta è la mia, del localhsot del browser, la seconda è quella in cui sto facendo forwardind del traffico; [--rm] elimina il container appena stoppato. Senza [-p] lo posso contattare solo con l'IP (tipo 172.17.0.2) e non con localhost.
 
+COMANDI DOCKERHUB:
+sudo docker login
+sudo docker push <username>/<repository_name>:latest
+
+
 COMANDI LINUX UTILI:
 ip a: vedi gli ip address delle reti presenti
 sudo systemctl stop apache2: nel caso dovesse darmi fastidio apache2

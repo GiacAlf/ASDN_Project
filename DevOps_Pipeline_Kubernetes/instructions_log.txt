@@ -1,51 +1,45 @@
-Passaggi eseguiti a terminale:
+Log progetto:
 
-> sudo microk8s enable ha-cluster: abilità la HA (altà disponibilità)
+0 - INSTALLLAZIONE SOFTWARE VARI:
 
-> sudo microk8s enable dns: per migliorare la comunicazione tra i nodi del cluster
+sudo apt install snapd
+sudo snap install snapd
+[installazione docker]
+sudo snap install kubectl --classic: installa kubectl
 
-
-INIZIO:
-
-build del dockerfile: immagine chiamata debian_v1
-
-# Installare dipendenze
-RUN apt-get update && apt-get install -y \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg2 \
-    software-properties-common \
-    lsb-release \
-    bash-completion \
-    iproute2 \
-    iputils-ping \
-    wget
-
-
-run container
-
-
-INSTALLAZIONE KIND:
+1- INSTALLAZIONE KIND: serve per creare cluster con container docker
 
 curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
 sudo rm /usr/local/bin/kind # per sicurezza
 chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 
-Per creare il cluster Kind:
+Per creare/cancellare il cluster Kind:
+creare un file yaml kind-config.yaml
 sudo kind create cluster --config kind-config.yaml
 sudo kind delete cluster: rimuove tutti i nodi del cluster
 
+comandi kind:
 sudo kind get nodes
 sudo kind get clusters
 sudo kind export kubeconfig --name kind: se kubectl non punta al cluster kind
+
+comandi kubectl:
 sudo kubectl config get-contexts: per vedere se punta a kind
 sudo kubectl config use-context kind-kind: per usare il giusto contesto
 
+sudo kubectl cluster-info: fa vedere il cluster
 sudo kubectl cluster-info --context kind-kind: per vedere il cluster
+sudo kubectl cluster-info dump: dumpa un macello di info
 sudo kubectl get nodes: vedi i nodi
 
+Quindi posso usare tutti i comandi di microk8s kubectl senza scrivere microk8s!!!!
 
-sudo snap install kubectl --classic: installa kubectl
+2 - CREAZIONE 
+
+
+
+3 - DA FARE: creazione file yaml di deploy da dockerhub
+
+
 
