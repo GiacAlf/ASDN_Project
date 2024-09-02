@@ -5,7 +5,7 @@ sudo docker images: fa veder le immagini create
 sudo docker inspect <CONTAINER NAME/ID>: fa vedere tutto del container, specialmente la "Network"
 sudo docker stop <CONTAINER NAME>: stoppa il container
 sudo docker rm <CONTAINER ID>: rimuove il container in stop
-sudo docker rm <CONTAINER ID>: rimuove il container in stop
+sudo docker rmi <IMGE ID>: rimuove l'immagine in stop
 sudo docker exec -it <CONTAINER NAME> [/bin/]sh: fa partire il terminale del container
 
 COMANDI DOCKER OPERATIVI:

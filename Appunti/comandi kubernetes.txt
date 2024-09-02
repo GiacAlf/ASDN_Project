@@ -25,7 +25,7 @@ so bene quando, è la kubernete API che mi risponde, invece con docker non succe
 > sudo microk8s kubectl delete -f <DEPLOY YAML FILE NAME>: cancella il deploy
 > sudo microk8s kubectl apply -f . : runna tutti i file yaml della cartella specificata
 > sudo microk8s kubectl get pods: si riferisce al namespace:default che sta nel yml file.
-[> sudo microk8s kubectl exec -it <POD NAME> sh [o bash]: per entrare nel pod] --> deprecato
+> sudo microk8s kubectl exec -it <POD NAME> sh [o bash]: per entrare nel pod --> deprecato
 > sudo microk8s kubectl exec -it <POD NAME> -- sh: quello corretto al momento
 
 > sudo microk8s kubectl get deployments: fa vedere solo i pod creati con un deploy (cioè kind:Deployment)
@@ -34,6 +34,7 @@ so bene quando, è la kubernete API che mi risponde, invece con docker non succe
 > sudo microk8s kubectl get nodes [-o wide]: fa vedere i nodi
 > sudo microk8s kubectl describe pod <POD NAME>
 > sudo microk8s kubectl get all [-A]: fa un get di tutto!!!! con -A vedo tutti i namespaces e non solo l'attuale
+> sudo microk8s refresh-certs --cert server.crt: per aggiornare i certificati se dice couldn't get current server API group list
 
 > microk8s: ti dice quali sono i comandi possibili:
         reset: che ti fa stoppare il cluster
