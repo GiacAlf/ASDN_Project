@@ -1,11 +1,13 @@
-Log progetto:
+LOG PROGETTO:
+
 
 0 - INSTALLLAZIONE SOFTWARE VARI:
 
 sudo apt install snapd
 sudo snap install snapd
-[installazione docker]
-sudo snap install kubectl --classic: installa kubectl
+[installazione docker e sudo systemctl start docker per farlo partire al boot]
+sudo snap install kubectl --classic #installa kubectl
+
 
 1- INSTALLAZIONE KIND: serve per creare cluster con container docker
 
@@ -15,19 +17,18 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 
 Per creare/cancellare il cluster Kind:
-creare un file yaml kind-config.yaml
+creaZIONE file yaml kind-config.yaml
 sudo kind create cluster --config kind-config.yaml
-sudo kind delete cluster: rimuove tutti i nodi del cluster
+sudo kind delete cluster #rimuove tutti i nodi del cluster
 
 comandi kind:
 sudo kind get nodes
 sudo kind get clusters
-sudo kind export kubeconfig --name kind: se kubectl non punta al cluster kind
+sudo kind export kubeconfig --name kind #se kubectl non punta al cluster kind
 
 comandi kubectl:
 sudo kubectl config get-contexts: per vedere se punta a kind
 sudo kubectl config use-context kind-kind: per usare il giusto contesto
-
 sudo kubectl cluster-info: fa vedere il cluster
 sudo kubectl cluster-info --context kind-kind: per vedere il cluster
 sudo kubectl cluster-info dump: dumpa un macello di info
@@ -35,8 +36,11 @@ sudo kubectl get nodes: vedi i nodi
 
 Quindi posso usare tutti i comandi di microk8s kubectl senza scrivere microk8s!!!!
 
-2 - CREAZIONE 
 
+2 - CREAZIONE IMMAGINE DOCKER
+
+sudo docker build -t giacomoalfani/asdn_project . #creazione immagine con nginx e index.html
+sudo docker push giacomoalfani/asdn_project:latest : push su dockerhub
 
 
 3 - DA FARE: creazione file yaml di deploy da dockerhub
