@@ -1,7 +1,0 @@
-Passaggi eseguiti a terminale:
-
-> sudo microk8s enable ha-cluster: abilità la HA (altà disponibilità)
-
-> sudo microk8s enable dns: per migliorare la comunicazione tra i nodi del cluster
-
-

@@ -1,0 +1,31 @@
+Passaggi eseguiti a terminale:
+
+> sudo microk8s enable ha-cluster: abilità la HA (altà disponibilità)
+
+> sudo microk8s enable dns: per migliorare la comunicazione tra i nodi del cluster
+
+
+INIZIO:
+
+build del dockerfile: immagine chiamata debian_v1
+
+# Installare dipendenze
+RUN apt-get update && apt-get install -y \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    software-properties-common \
+    lsb-release \
+    bash-completion \
+    iproute2 \
+    iputils-ping \
+    wget
+
+
+run container
+
+
+DA QUi':
+
+
