@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name:  cluster_deplo
+  namespace: default
+  labels:
+    app:  cluster_deplo
+spec:
+  selector:
+    matchLabels:
+      app: cluster_deplo
+  replicas: 2
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app:  cluster_deplo
+    spec:
+      # initContainers:
+        # Init containers are exactly like regular containers, except:
+          # - Init containers always run to completion.
+          # - Each init container must complete successfully before the next one starts.
+      containers:
+      - name:  cluster_deplo
+        image:  giacomoalfani/asdn_project:latest
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        livenessProbe:
+          tcpSocket:
+            port: 80
+        ports:
+        - containerPort:  80
+          name:  cluster_deplo
+      restartPolicy: Always
