@@ -63,7 +63,27 @@ Quindi per raggiungere il nodo bisogna fare:
 curl <ip interno del nodo>:<porta esposta dal service all'esterno>
 (curl 172.18.0.3:32662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
 interessa per ora.
+
+Quindi l'applicazione è all'indirizzo: 172.18.0.3:31852
+
 Quindi faremo curl 172.18.0.4:31852 per contattare la nostra applicazione
 sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh #per entrare nel nodo
 
 modificando il file di config si sono aggiunte le configurazioni delle porte esposte.
+
+
+4 - JENKINS
+
+Jenkins dovrà:
+    - collegarsi a github per verificare le nuove push;
+    - quando c'è fare dei test sul codice, cioè su index.html, tipo di sintassi;
+    - lanciare docker build sul dockerfile;
+    - fare push immagine su dockerhub;
+    - lanciare cluster_deployment.
+
+
+5 - OPERATE
+
+
+
+6 - GRAFANA
