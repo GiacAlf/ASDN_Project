@@ -64,7 +64,9 @@ curl <ip interno del nodo>:<porta esposta dal service all'esterno>
 (curl 172.18.0.3:32662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
 interessa per ora.
 
-Quindi l'applicazione è all'indirizzo: 172.18.0.3:31852
+
+ APPLICAZIONE: 172.18.0.3:31852
+
 
 Quindi faremo curl 172.18.0.4:31852 per contattare la nostra applicazione
 sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh #per entrare nel nodo
@@ -81,6 +83,31 @@ Jenkins dovrà:
     - fare push immagine su dockerhub;
     - lanciare cluster_deployment.
 
+creato file Jenkins_deployment.yaml
+sudo kubectl apply -f jenkins_deployment.yaml
+
+creato file jenkins_service.yaml
+sudo kubectl apply -f jenkins_service.yaml
+
+ha creato un nuovo pod dentro in nodo kind-worker, ecco perchè:
+    - Separazione delle Responsabilità: Il nodo master è responsabile della gestione del cluster stesso, 
+    incluso il controllo degli stati dei nodi, il monitoraggio e la gestione dei pod. Eseguire Jenkins 
+    sul nodo master potrebbe mettere a rischio la stabilità del cluster, soprattutto se Jenkins richiede molte risorse.
+
+    - Scalabilità e Manutenibilità: Separare Jenkins dal nodo master consente di scalare e gestire le risorse in modo 
+    più efficiente. I nodi worker possono essere scalati in base alle necessità di carico di lavoro, mentre il master 
+    rimane concentrato sulla gestione del cluster.
+
+    - Sicurezza: Limitare i processi in esecuzione sul nodo master può ridurre la superficie di attacco, mantenendo 
+    il master dedicato alla gestione del cluster.
+
+
+JENKINS: 172.18.0.2:30000
+
+password: 4f46e37b23184b948e81b60373404fa0
+
+troubleshooting:
+sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
 
 5 - OPERATE
 
