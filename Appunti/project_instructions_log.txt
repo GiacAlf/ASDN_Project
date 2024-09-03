@@ -24,26 +24,46 @@ sudo kind delete cluster #rimuove tutti i nodi del cluster
 comandi kind:
 sudo kind get nodes
 sudo kind get clusters
-sudo kind export kubeconfig --name kind #se kubectl non punta al cluster kind
+> sudo kind export kubeconfig --name kind #se kubectl non punta al cluster kind
 
 comandi kubectl:
 sudo kubectl config get-contexts: per vedere se punta a kind
 sudo kubectl config use-context kind-kind: per usare il giusto contesto
 sudo kubectl cluster-info: fa vedere il cluster
-sudo kubectl cluster-info --context kind-kind: per vedere il cluster
+sudo kubectl cluster-info --context kind-kind: fa vedere il cluster
 sudo kubectl cluster-info dump: dumpa un macello di info
-sudo kubectl get nodes: vedi i nodi
-
+sudo kubectl get nodes: vedi i nodi, se ce li hai. Con kind sono container e non nodi
+sudo kubectl get all
 Quindi posso usare tutti i comandi di microk8s kubectl senza scrivere microk8s!!!!
 
 
 2 - CREAZIONE IMMAGINE DOCKER
 
 sudo docker build -t giacomoalfani/asdn_project . #creazione immagine con nginx e index.html
-sudo docker push giacomoalfani/asdn_project:latest : push su dockerhub
+sudo docker push giacomoalfani/asdn_project:latest #push su dockerhub
 
 
-3 - DA FARE: creazione file yaml di deploy da dockerhub
+3 - FILE YAML E DEPLOY
+
+creato file yaml di cluster deploy
+> sudo kubectl apply -f cluster_deployment.yaml
+sudo kubectl get all #si vedono
+
+In teoria nel cluster composto da container che simulano i nodi, il deploy ha creato pod dentro i container (perchè per lui sono nodi)
+Si verifica con sudo kubectl get pods -o wide che mostra se sono in esecuzione e su quale nodo girano.
+Per esporre il cluster non serve creare manualmente il SERVICE ma lo fa lui così:
+
+> sudo kubectl expose deployment <DEPLOY NAME> --type=NodePort --port=80
+
+(sudo kubectl get pods -o wide)
+sudo kubectl get nodes -o wide #per vedere gli ip dei pod
 
 
+Quindi per raggiungere il nodo bisogna fare:
+curl <ip interno del nodo>:<porta esposta dal service all'esterno>
+(curl 172.18.0.3:32662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
+interessa per ora.
+Quindi faremo curl 172.18.0.4:31852 per contattare la nostra applicazione
+sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh #per entrare nel nodo
 
+modificando il file di config si sono aggiunte le configurazioni delle porte esposte.
