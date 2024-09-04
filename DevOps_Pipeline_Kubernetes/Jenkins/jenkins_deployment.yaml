@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: jenkins
-        image: giacomoalfani/jenkins_custom:latest
+        image: jenkins/jenkins:latest
         ports:
         - containerPort: 8080
         - containerPort: 50000
