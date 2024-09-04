@@ -62,7 +62,7 @@ per la porta fare sudo kubectl get services -A, ed è quella a destra del serviz
 
 Quindi per raggiungere il nodo bisogna fare:
 curl <ip interno del nodo>:<porta esposta dal service all'esterno>
-(curl 172.18.0.3:3232350662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
+(curl 172.18.0.3:32350), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
 interessa per ora.
 
 
