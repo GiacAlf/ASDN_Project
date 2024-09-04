@@ -57,7 +57,8 @@ Per esporre il cluster non serve creare manualmente il SERVICE ma lo fa lui cos�
 > sudo kubectl expose deployment <DEPLOY_NAME> --type=NodePort --port=80 #in DEPLOY_NAME per noi è clusterdeplo
 
 (sudo kubectl get pods -o wide)
-sudo kubectl get nodes -o wide #per vedere gli ip dei pod
+sudo kubectl get nodes -o wide #per vedere gli ip dei pod, quello del control-plane è quello dell'applicazione
+per la porta fare sudo kubectl get services -A, ed è quella a destra del servizio chiamato clusterdeplo
 
 Quindi per raggiungere il nodo bisogna fare:
 curl <ip interno del nodo>:<porta esposta dal service all'esterno>
@@ -134,6 +135,14 @@ joic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6amVua2lucy1zYSJ9.TPYyKEH7dJ92RjdvkT_3
 jX8Rbx9F04eiXkjoYL8X-7fxcm99K5aZSQgz-CYUWqhc6z-cc9dSHvAWXdUAOUFvEvxMg6Pl4jLUOH1Z05Iqzolb4o_dzmChiVAfC6hcgjhCvFsAmVp0UG_
 PAvHINxADMlUH3VgfCvizwgqli7M3iksaIuR0O0hprCiA2PASvydjqhrUvOPjq0BaZCQYhwXYVXHGfKCEwNitQGeUPZsXiugtD6oS3MyCi3lHf9RON6kgcy
 0Qe7Zs7EJkX-hsdA-ERU3V4V4D73IjxjwERrmU9Clksgw
+
+Per creare le credenziali:
+manage jenkins > credentials (sta dentro security) > system > click su global credentials > click su add credentials
+
+
+
+
+
 
 troubleshooting:
 sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
