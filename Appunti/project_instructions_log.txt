@@ -17,7 +17,7 @@ chmod +x ./kind
 sudo mv ./kind /usr/local/bin/kind
 
 Per creare/cancellare il cluster Kind:
-creaZIONE file yaml kind-config.yaml
+creazione file yaml kind-config.yaml
 sudo kind create cluster --config kind-config.yaml
 sudo kind delete cluster #rimuove tutti i nodi del cluster
 
@@ -119,11 +119,10 @@ per kubernetes si crea un servizio, un file yaml e si applica:
 sudo kubectl create serviceaccount jenkins-sa
 sudo kubectl apply -f jenkins_sa_binding.yaml
 
-sudo kubectlget secret -A #per capire quale è il nome del secret
+sudo kubectl get secret -A #per capire quale è il nome del secret
 sudo kubectl describe secret <SECRET NAME> -n kube-system #volendo si può togliere il nome del namespace
 
 sudo kubectl create token jenkins-sa #se non funzionano i precedenti
-
 
 troubleshooting:
 sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
