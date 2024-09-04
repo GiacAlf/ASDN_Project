@@ -103,7 +103,7 @@ ha creato un nuovo pod dentro in nodo kind-worker, ecco perchè:
 
 JENKINS: 172.18.0.2:30000
 
-sudo kubectl get pods -o wide #per nome pod
+sudo kubectl get pods -o wide #per nome pod jenkins
 sudo kubectl logs <POD NAME> #per trovare la password
 password: 04960d863a0840f29ec5681e116facb1
 

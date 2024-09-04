@@ -1,101 +1,3 @@
-    1  sudo apt install code
-    2  su -
-    3  sudo apt install code
-    4  sudo apt update
-    5  sudo apt install wget gpg
-    6  wget -q0- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    7  wget -qO- https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-    8  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"> /etc/apt/sources.list.d/vscode.list'
-    9  sudo apt update
-   10  sudo apt install code
-   11  sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"> /etc/apt/sources.list.d/vscode.list'
-   12  cat /etc/apt/sources.list.d/vscode.list 
-   13  apt-key list
-   14  sudo apt update --fix-missing
-   15  wget https://code.visualstudio.com/sha/download?Build=stable&os=linux-deb-x64 -O code_latest_amd64.deb
-   16  wget https://code.visualstudio.com/sha/download?Build=stable&os=linux-deb-x64 -0 code_latest_amd64.deb
-   17  sudo apt install snapd
-   18  sudo apt install
-   19  sudo apt install snapd
-   20  sudo snap install code --classic
-   21  su root
-   22  sudo apt update
-   23  sudo apt upgrade
-   24  sudo apt install wget gpg
-   25  wget -qO- htpps://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
-   26  sudo apt update
-   27  sudo apt upgrade
-   28  sudo apt install wget gnupg
-   29  wget -q0- https://packages.microsoft.com/keys/microsoft.com | gpg --dearmor sudo tee /usr/share/keyrings/microsoft-archive-keyring.gpg > /dev/null
-   30  wget -qO- https://packages.microsoft.com/keys/microsoft.com | gpg --dearmor sudo tee /usr/share/keyrings/microsoft-archive-keyring.gpg > /dev/null
-   31  wget -qO- https://packages.microsoft.com/keys/microsoft.com | gpg --dearmor sud | sudo tee /usr/share/keyrings/microsoft-archive-keyring.gpg > /dev/null
-   32  wget -qO- https://packages.microsoft.com/keys/microsoft.com | gpg --dearmor | sudo tee /usr/share/keyrings/microsoft-archive-keyring.gpg > /dev/null
-   33  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   34  sudo apt update
-   35  sudo apt-get update
-   36  sudo apt-get install curl
-   37  sudo nano /etc/apt/sources.list
-   38  sudo nano etc/apt/source.list
-   39  sudo nano /etc/apt/source.list
-   40  sudo nano /etc/apt/sources.list
-   41  sudo apt-get update
-   42  sudo apt-get install curl
-   43  sudo yum install curl
-   44  curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   45  sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/keyrings/microsoft-archive-keyring.gpg
-   46  sudo sh -c 'echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/microsoft-archive-keyring.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-   47  sudo apt-get update
-   48  sudo apt-get install code # or code-insiders
-   49  sudo apt update
-   50  sudo apt install snapd
-   51  sudo snap install snapd
-   52  git config--global user.email "marta.paciotti@gmail.com"
-   53  git config --global user.email "marta.paciotti@gmail.com"
-   54  git config --global user.name "martak9"
-   55  git config --global user.name "Martak9"
-   56  history
-   57  git config --global user.email "marta.paciotti@student.univaq.com"
-   58  sudo snap install hello-word
-   59  sudo snap install hello-world
-   60  hello-world
-   61  sudo snap install microk8s --classic
-   62  sudo microk8s kubectl get pods
-   63  microk8s -v
-   64  sudo microk8s kubectl get pods
-   65  witch microk8s
-   66  whitch microk8s
-   67  which microk8s
-   68  sudo /snap/bin/microk8s kubectl get pods
-   69  nano /etc/sudoers
-   70  visudo /etc/sudoers
-   71  sudo visudo
-   72  sudo microk8s kubectl get pods
-   73  cd k-example1
-   74  sudo kubectl delete -f .
-   75  sudo microk8s kubectl delete -f .
-   76  sudo microk8s kubctl get all
-   77  sudo microk8s kubectl get all
-   78  sudo microk8s kubectl delete -f .
-   79  sudo microk8s kubectl get all
-   80  cd k-example1/
-   81  microk8s kubectl apply -f
-   82  sudo microk8s kubectl apply -f
-   83  sudo microk8s kubectl apply -fmyPod.yaml
-   84  sudo microk8s kubectl apply -fmyPod.yml
-   85  sudo microk8s kubectl apply -f myPod.yml
-   86  sudo microk8s kubectl get pods
-   87  ls
-   88  cs .
-   89  cd .
-   90  docker login
-   91  sudo docker login
-   92  sudo docker logout
-   93  sudo docker login
-   94  sudo microk8s dashboard-proxy
-   95  cd example2
-   96  sudo microk8s dashboard-proxy
-   97  sudo microk8s kubectl get all
-   98  .
    99  curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-debian-arm64
   100  chmod +x ./kind
   101  sudo mv ./kind /usr/local/bin/kind
@@ -110,61 +12,28 @@
   110  kind version
   111  kind create cluster --config kind-config.yaml
   112  sudo kind create cluster --config kind-config.yaml
-  113  microk8s enable dashboard
-  114  sudo microk8s enable dashboard
-  115  sudo microk8s dashboard proxy
-  116  sudo microk8s dashboard-proxy
+  
+  
   117  cd DevOps_Pipeline_Kubernetes/
   118  curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.20.0/kind-linux-arm64
   119  chmod +x ./kind
   120  sudo mv ./kind /usr/local/bin/kind
-  121  kind create cluster --config kind-config.yaml
   122  sudo kind create cluster --config kind-config.yaml
-  123  sudo kind get nodes
-  124  sudo kubectl get nodes
-  125  sudo snap install kubectl -- classic
-  126  sudo snap install kubectl --classic
-  127  sudo kubectl get nodes
   128  sudo kind export kubeconfig --name kind
   129  sudo kubectl config get-contexts
   130  sudo kubectl config use-context kind-kind
   131  sudo kind delete cluster
   132  kind create cluster --config kind-config.yaml
   133  sudo kind create cluster --config kind-config.yaml
-  134  sudo kubectl get nodes
-  135  sudo kind get cluster
-  136  sudo kind get clusters
-  137  sudo kubectl get pods
-  138  cd DevOps_Pipeline_Kubernetes/
-  139  sudo kind -version
-  140  sudo kind --version
-  141  sudo kind create cluster --config kind-config.yaml
+
   142  cd Cluster/
   143  sudo kind create cluster --config kind-config.yaml
-  144  sudo kind get clusters
-  145  sudo kind get nodes
   146  sudo kind export kubeconfig --name kind
   147  sudo kubectl config get-contexts
   148  sudo kubectl config use-context kind-kind
-  149  sudo kubectl cluster-info
-  150  sudo kubectl get nodes
-  151* sudo kubec
-  152  sudo kubectl get all
-  153  sudo kubectl get all -A
-  154  sudo docker build -t giacomoalfani/asdn_project .
-  155  .
   156  cd ..
   157  sudo docker build -t giacomoalfani/asdn_project .
   158  cd Cluster/
   159  sudo kubectl apply -f cluster_deployment.yaml
   160  sudo kubectl get all
   161  sudo kubectl expose deployment clusterdeplo --type=NodePort --port=80
-  162  sudo kubectl get nodes -o wide
-  163  cd ..
-  164  ls
-  165  cd ..
-  166  ls
-  167  cd Appunti/
-  168  ls
-  169  history > bash history.txt
-  170  history > bash_history.txt 
