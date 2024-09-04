@@ -27,12 +27,12 @@ sudo kind get clusters
 > sudo kind export kubeconfig --name kind #se kubectl non punta al cluster kind
 
 comandi kubectl:
-sudo kubectl config get-contexts: per vedere se punta a kind
-sudo kubectl config use-context kind-kind: per usare il giusto contesto
-sudo kubectl cluster-info: fa vedere il cluster
-sudo kubectl cluster-info --context kind-kind: fa vedere il cluster
-sudo kubectl cluster-info dump: dumpa un macello di info
-sudo kubectl get nodes: vedi i nodi, se ce li hai. Con kind sono container e non nodi
+sudo kubectl config get-contexts #per vedere se punta a kind
+sudo kubectl config use-context kind-kind #per usare il giusto contesto
+sudo kubectl cluster-info #fa vedere il cluster
+sudo kubectl cluster-info --context kind-kind #fa vedere il cluster
+sudo kubectl cluster-info dump #dumpa un macello di info
+sudo kubectl get nodes #vedi i nodi, se ce li hai. Con kind sono container e non nodi
 sudo kubectl get all
 Quindi posso usare tutti i comandi di microk8s kubectl senza scrivere microk8s!!!!
 
@@ -46,18 +46,17 @@ sudo docker push giacomoalfani/asdn_project:latest #push su dockerhub
 3 - FILE YAML E DEPLOY
 
 creato file yaml di cluster deploy
-> sudo kubectl apply -f cluster_deployment.yaml
+> sudo kubectl apply -f cluster_deployment.yaml #deployamo la nostra appl nel cluster
 sudo kubectl get all #si vedono
 
 In teoria nel cluster composto da container che simulano i nodi, il deploy ha creato pod dentro i container (perchè per lui sono nodi)
 Si verifica con sudo kubectl get pods -o wide che mostra se sono in esecuzione e su quale nodo girano.
 Per esporre il cluster non serve creare manualmente il SERVICE ma lo fa lui così:
 
-> sudo kubectl expose deployment <DEPLOY NAME> --type=NodePort --port=80
+> sudo kubectl expose deployment <DEPLOY_NAME> --type=NodePort --port=80 # in DEPLOY_NAME per noi è clusterdeplo
 
 (sudo kubectl get pods -o wide)
 sudo kubectl get nodes -o wide #per vedere gli ip dei pod
-
 
 Quindi per raggiungere il nodo bisogna fare:
 curl <ip interno del nodo>:<porta esposta dal service all'esterno>
