@@ -106,7 +106,7 @@ JENKINS: 172.18.0.2:30000
 
 sudo kubectl get pods -o wide #per nome pod
 sudo kubectl logs <POD NAME> #per trovare la password
-password: eb3aa4de5aef4c5b8956d4e32e52c9ab
+password: d33a9def65ab42d2b7eaf7f5b333b2bb
 
 credenziali:
     user: admin
