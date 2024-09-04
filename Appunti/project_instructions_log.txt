@@ -128,6 +128,14 @@ sudo kubectl create token jenkins-sa #se non funzionano i precedenti
 troubleshooting:
 sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
 
+L'iimagine di jenkins su dockerhub non aveva nulla dentro, quindi si è creato un dockerfile apposito per installarci tutto, 
+poi pushato su dockerhub e rideployato col file yaml di deploy di jenkins
+
+
+
+
+
+
 5 - OPERATE
 
 
