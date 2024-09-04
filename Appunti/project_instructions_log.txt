@@ -41,6 +41,7 @@ Quindi posso usare tutti i comandi di microk8s kubectl senza scrivere microk8s!!
 
 sudo docker build -t giacomoalfani/asdn_project . #creazione immagine con nginx e index.html
 sudo docker push giacomoalfani/asdn_project:latest #push su dockerhub
+sudo docker pull giacomoalfani/asdn_project:latest #è meglio ma nel deploy c'è già il pull da docker hub
 
 
 3 - FILE YAML E DEPLOY
@@ -53,21 +54,21 @@ In teoria nel cluster composto da container che simulano i nodi, il deploy ha cr
 Si verifica con sudo kubectl get pods -o wide che mostra se sono in esecuzione e su quale nodo girano.
 Per esporre il cluster non serve creare manualmente il SERVICE ma lo fa lui così:
 
-> sudo kubectl expose deployment <DEPLOY_NAME> --type=NodePort --port=80 # in DEPLOY_NAME per noi è clusterdeplo
+> sudo kubectl expose deployment <DEPLOY_NAME> --type=NodePort --port=80 #in DEPLOY_NAME per noi è clusterdeplo
 
 (sudo kubectl get pods -o wide)
 sudo kubectl get nodes -o wide #per vedere gli ip dei pod
 
 Quindi per raggiungere il nodo bisogna fare:
 curl <ip interno del nodo>:<porta esposta dal service all'esterno>
-(curl 172.18.0.3:32662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
+(curl 172.18.0.3:3232350662), questo permette di avere quella porta aperta nei nodi/container ma non lo collega con localhost ma non ci 
 interessa per ora.
 
 
- APPLICAZIONE: 172.18.0.3:31852
+ APPLICAZIONE: 172.18.0.3:32350
 
 
-Quindi faremo curl 172.18.0.4:31852 per contattare la nostra applicazione
+Quindi faremo curl 172.18.0.4:32350 per contattare la nostra applicazione
 sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh #per entrare nel nodo
 
 modificando il file di config si sono aggiunte le configurazioni delle porte esposte.
@@ -105,7 +106,7 @@ JENKINS: 172.18.0.2:30000
 
 sudo kubectl get pods -o wide #per nome pod jenkins
 sudo kubectl logs <POD NAME> #per trovare la password
-password: 04960d863a0840f29ec5681e116facb1
+password Giacomo: fe8ca0c11dee4f9d924084c12c2987fe
 
 credenziali:
     user: admin
@@ -118,10 +119,21 @@ per kubernetes si crea un servizio, un file yaml e si applica:
 sudo kubectl create serviceaccount jenkins-sa
 sudo kubectl apply -f jenkins_sa_binding.yaml
 
+per credenziali kubernetes:
 sudo kubectl get secret -A #per capire quale è il nome del secret
-sudo kubectl describe secret <SECRET NAME> -n kube-system #volendo si può togliere il nome del namespace
-
+il secret name è bootstrap-token-abcdef
+sudo kubectl describe secret <SECRET NAME> -n kube-system #volendo si può togliere il nome del namespace ma non funziona
 sudo kubectl create token jenkins-sa #se non funzionano i precedenti
+token Giacomo:
+
+eyJhbGciOiJSUzI1NiIsImtpZCI6IkliaDBycllaeTRvczZmcTdSWDlSa242MnJfNVRZNHU3bGNRaS00Um10SVEifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJl
+cm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzI1NDUxNTI0LCJpYXQiOjE3MjU0NDc5MjQsImlzcyI6Imh0dHBzOi8va3ViZXJ
+uZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJkZWZhdWx0Iiwic2VydmljZWFjY291bnQiOn
+sibmFtZSI6ImplbmtpbnMtc2EiLCJ1aWQiOiJjMmZkZjBjNC05MjU1LTQ1ZDItOWVhNC02NGExZTE2MTg0OGIifX0sIm5iZiI6MTcyNTQ0NzkyNCwic3ViI
+joic3lzdGVtOnNlcnZpY2VhY2NvdW50OmRlZmF1bHQ6amVua2lucy1zYSJ9.TPYyKEH7dJ92RjdvkT_3V5zf3GYD41RWMVv_rFY-4Q_LhLXn_fSpjS4Xqo_
+jX8Rbx9F04eiXkjoYL8X-7fxcm99K5aZSQgz-CYUWqhc6z-cc9dSHvAWXdUAOUFvEvxMg6Pl4jLUOH1Z05Iqzolb4o_dzmChiVAfC6hcgjhCvFsAmVp0UG_
+PAvHINxADMlUH3VgfCvizwgqli7M3iksaIuR0O0hprCiA2PASvydjqhrUvOPjq0BaZCQYhwXYVXHGfKCEwNitQGeUPZsXiugtD6oS3MyCi3lHf9RON6kgcy
+0Qe7Zs7EJkX-hsdA-ERU3V4V4D73IjxjwERrmU9Clksgw
 
 troubleshooting:
 sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
