@@ -82,6 +82,7 @@ echo "The Jenkins IP is: 172.18.0.2:30000"
 
 # Recupera la password di Jenkins
 echo "Recupero password Jenkins..."
+sleep 20
 JENKINS_PASSWORD=$(sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}')
 echo "Jenkins password: $JENKINS_PASSWORD"
 
