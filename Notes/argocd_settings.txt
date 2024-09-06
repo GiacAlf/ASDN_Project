@@ -11,7 +11,8 @@ sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-
 
 #STEP 4: verificare l'installazione
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!! (circa 180 secondi)
-sudo kubectl get pods -n argocd
+sudo kubectl get pods -n argocd [-o wide]
+#NB: con -o wide si capisce dove stanno, li mette nei nodi worker
 
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!!
 #STEP 5: esposizone del servizio ArgoCD 
