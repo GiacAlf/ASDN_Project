@@ -10,13 +10,14 @@ sudo kubectl create namespace argocd
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 #STEP 4: verificare l'installazione
-#NB: prima di procedere controlla che tutti i pod siano RUNNING!!!!
+#NB: prima di procedere controlla che tutti i pod siano RUNNING!!!! (circa 180 secondi)
 sudo kubectl get pods -n argocd
 
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!!
 #STEP 5: esposizone del servizio ArgoCD 
 sudo sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
 #NB: non usiamo la porta 8080 perchè probabilmente occupata da altro
+#NB2: mettendo -d libera il terminale? da provare
 
 #STEP 6: accesso al servizio
 > Collegati a https://localhost:8081
@@ -27,7 +28,7 @@ username = admin
 sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
 
 password Marta = PrkgHs8nkead8Uyx
-password Giacomo = 
+password Giacomo = J1otyItUmNR8WMI5
 
 # La password non è altro che il nome del pod argocd-server
 
