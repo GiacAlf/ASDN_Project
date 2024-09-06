@@ -1,24 +1,28 @@
-#STEP DA SEGUIRE PER L'ISTALLAZIONE / ACCESSO AD ARGOCD
+#DISINSTALLARE ARGOCD
+sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+sudo kubectl delete namespace argocd
 
-#STEP 1: verificare l'eecuzione del cluste kind
+
+#STEP DA SEGUIRE PER L'ISTALLAZIONE / ACCESSO AD ARGOCD
+#STEP 0: verificare l'eecuzione del cluste kind
 sudo kubectl get nodes
 
-#STEP 2: creare un namespace dedicato ad ArgoCD
+#STEP 1: creare un namespace dedicato ad ArgoCD
 sudo kubectl create namespace argocd
 
-#STEP 3: installazione di ArgoCD tramite manifesti yaml
+#STEP 2: installazione di ArgoCD tramite manifesti yaml
 sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-#STEP 4: verificare l'installazione
+#STEP 3: verificare l'installazione
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!! (circa 180 secondi)
-sudo kubectl get pods -n argocd [-o wide]
+sudo kubectl get pods -n argocd -o wide
 #NB: con -o wide si capisce dove stanno, li mette nei nodi worker
 
+#STEP 5: esposizone del servizio ArgoCD
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!!
-#STEP 5: esposizone del servizio ArgoCD 
 sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
 #NB: non usiamo la porta 8080 perchè probabilmente occupata da altro
-#NB2: mettendo -d libera il terminale? da provare
+
 
 #STEP 6: accesso al servizio
 > Collegati a https://localhost:8081
@@ -32,12 +36,3 @@ password Marta = PrkgHs8nkead8Uyx
 password Giacomo = J1otyItUmNR8WMI5
 
 # La password non è altro che il nome del pod argocd-server
-
-
-#DISINSTALLARE ARGOCD
-sudo rm /usr/local/bin/argocd
-
-rm -rf ~/.config/argocd
-
-sudo kubectl delete namespace argocd
-

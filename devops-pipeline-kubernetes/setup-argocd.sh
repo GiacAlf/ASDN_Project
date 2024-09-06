@@ -33,19 +33,22 @@ sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-
 
 # STEP 4: Verificare l'installazione
 echo "Verificando l'installazione (pod in esecuzione)..."
+sleep 15
 sudo kubectl get pods -n argocd -o wide
 
 # STEP 5: Attendere che tutti i pod siano in stato Running o attendere 180 secondi
 echo "Controllando lo stato dei pod di ArgoCD..."
-for i in {1..18}; do
-    if check_pods_running; then
-        echo "Tutti i pod sono in stato Running!"
-        break
-    else
-        echo "Attesa che i pod siano in stato Running... (tentativo $i di 18)"
-        sleep 10
-    fi
-done
+#for i in {1..18}; do
+#    if check_pods_running; then
+#        echo "Tutti i pod sono in stato Running!"
+#        break
+#    else
+#        echo "Attesa che i pod siano in stato Running... (tentativo $i di 18)"
+#        sleep 10
+#    fi
+#done
+
+sleep 180
 
 # STEP 6: Esporre il servizio ArgoCD
 echo "Esponendo il servizio ArgoCD su localhost:8081..."
