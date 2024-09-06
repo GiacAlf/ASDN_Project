@@ -26,7 +26,16 @@ username = admin
 #Per ottenere la password esegui il seguente comando:
 sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
 
-password Marta = qsMaawEwdLUdBbBW
+password Marta = PrkgHs8nkead8Uyx
 password Giacomo = 
 
 # La password non è altro che il nome del pod argocd-server
+
+
+#DISINSTALLARE ARGOCD
+sudo rm /usr/local/bin/argocd
+
+rm -rf ~/.config/argocd
+
+sudo kubectl delete namespace argocd
+
