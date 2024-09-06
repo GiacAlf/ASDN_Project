@@ -16,7 +16,7 @@ sudo kubectl get pods -n argocd [-o wide]
 
 #NB: prima di procedere controlla che tutti i pod siano RUNNING!!!!
 #STEP 5: esposizone del servizio ArgoCD 
-sudo sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
 #NB: non usiamo la porta 8080 perchè probabilmente occupata da altro
 #NB2: mettendo -d libera il terminale? da provare
 
