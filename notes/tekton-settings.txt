@@ -1,19 +1,22 @@
-# PASSAGGI PER INSTALLARE TEKTON
+# PER DISINSTALLARE TEKTON
+sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
+sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+
+
+# PER INSTALLARE TEKTON
 # importante: richiede versione kubernetes 1.28 o superiore (settata con l'immagine di kind nel kind-config.yaml)
 
 # installazione tekton
 sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
-
 # verifica installazione
 sudo kubectl get pods --namespace tekton-pipelines
 
 # installazione dashboard
 sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
-
 # verifica pod dashboard
 sudo kubectl get pods --namespace tekton-pipelines
 
-# esposizione dashboard
+# esposizione dashboard (blocca il terminale)
 sudo kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097
 
 # accesso

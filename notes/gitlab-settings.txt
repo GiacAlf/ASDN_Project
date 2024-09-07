@@ -1,0 +1,17 @@
+
+# installazione helm
+curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+# check versione
+helm version
+
+# aggiunta di gitlab alle repository di helm
+helm repo add gitlab https://charts.gitlab.io/
+
+# aggiornamento repo helm
+helm repo update
+
+# creazione namespace
+sudo kubectl create namespace gitlab
+
+...da finire...
