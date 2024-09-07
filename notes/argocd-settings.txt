@@ -2,8 +2,8 @@
 sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 sudo kubectl delete namespace argocd
 
-
 #STEP DA SEGUIRE PER L'ISTALLAZIONE / ACCESSO AD ARGOCD
+
 #STEP 0: verificare l'eecuzione del cluste kind
 sudo kubectl get nodes
 

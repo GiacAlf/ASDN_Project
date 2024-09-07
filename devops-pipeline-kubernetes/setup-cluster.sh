@@ -6,8 +6,8 @@
 # ./setup_cluster_and_jenkins.sh
 
 # variabili
-CLUSTER_CONFIG="Cluster/kind-config.yaml"
-CLUSTER_DEPLOYMENT="Cluster/cluster_deployment.yaml"
+CLUSTER_CONFIG="cluster/kind-config.yaml"
+CLUSTER_DEPLOYMENT="cluster/cluster-deployment.yaml"
 
 # Funzione per verificare se un comando è andato a buon fine
 check_command() {
