@@ -1,32 +1,24 @@
-#!/bin/bash
+
 # README: questo script installa jenkins sul cluster kubernetes
 
-# varialbili
-JENKINS_DEPLOYMENT="jenkins/jenkins-deployment.yaml"
-JENKINS_SERVICE="jenkins/jenkins-service.yaml"
-JENKINS_SA_BINDING="jenkins/jenkins-sa-binding.yaml"
-
 # disinstallazione di jenkins
-sudo kubectl delete -f $JENKINS_SA_BINDING
+sudo kubectl delete -f jenkins/jenkins-sa-binding.yaml
 sudo kubectl delete serviceaccount jenkins-sa
-sudo kubectl delete -f $JENKINS_SERVICE
-sudo kubectl apply -f $JENKINS_DEPLOYMENT
+sudo kubectl delete -f jenkins/jenkins-service.yaml
+sudo kubectl delete -f jenkins/jenkins-deployment.yaml 
 
 # Passaggi per l'installazione di Jenkins
 echo "Installazione di Jenkins..."
-sudo kubectl apply -f $JENKINS_DEPLOYMENT
-check_command "kubectl apply -f $JENKINS_DEPLOYMENT"
+sudo kubectl apply -f jenkins/jenkins-deployment.yaml
 
-sudo kubectl apply -f $JENKINS_SERVICE
-check_command "kubectl apply -f $JENKINS_SERVICE"
+echo "Creazione jenkins service..."
+sudo kubectl apply -f jenkins/jenkins-service.yaml
 
-echo "Creazione del service account per Jenkins..."
+echo "Creazione service account di Jenkins..."
 sudo kubectl create serviceaccount jenkins-sa
-check_command "kubectl create serviceaccount jenkins-sa"
 
 echo "Applicazione del binding per il service account di Jenkins..."
-sudo kubectl apply -f $JENKINS_SA_BINDING
-check_command "kubectl apply -f $JENKINS_SA_BINDING"
+sudo kubectl apply -f jenkins/jenkins-sa-binding.yaml
 
 echo "Installazione di Jenkins completata con successo!"
 
@@ -43,18 +35,15 @@ APP_IP_PORT="${CONTROL_PLANE_IP}:${CLUSTERDEPLO_PORT}"
 
 # Stampa l'IP e la porta dell'applicazione
 echo
-echo "The application IP and port: $APP_IP_PORT"
+echo "The application IP and port is: $APP_IP_PORT"
 echo
 echo "The Jenkins IP is: 172.18.0.2:30000"
 echo
 # Recupera la password di Jenkins
 echo "Recupero password Jenkins..."
 sleep 30
-JENKINS_PASSWORD=$(sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}')
-echo "Jenkins password: $JENKINS_PASSWORD"
-echo "(if not displayed run this:
-sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}')"
+echo "Jenkins password: " && sudo kubectl exec $(sudo kubectl get pods --all-namespaces | grep jenkins | awk '{print $2}') -- cat /var/jenkins_home/secrets/initialAdminPassword
+
 # Recupera il token per il service account jenkins-sa
 echo "Creazione token jenkins per kubectl..."
-JENKINS_SA_TOKEN=$(sudo kubectl create token jenkins-sa)
-echo "Jenkins service account token for Kubectl: $JENKINS_SA_TOKEN"
+echo "Jenkins service account token per Kubectl: " && sudo kubectl create token jenkins-sa
