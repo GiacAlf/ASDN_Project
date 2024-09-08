@@ -5,7 +5,7 @@ FROM jenkins/jenkins:lts
 USER root
 
 # Aggiorna i pacchetti e installa strumenti utili
-RUN apt-get update && apt-get install -y \
+RUN apt update && apt install -y \
     sudo \
     iputils-ping \
     curl \
@@ -15,8 +15,7 @@ RUN apt-get update && apt-get install -y \
     apt-transport-https \
     ca-certificates \
     gnupg \
-    lsb-release \
-    && rm -rf /var/lib/apt/lists/*
+    lsb-release
 
 # Avvia il demone snapd
 RUN snap install core && \
