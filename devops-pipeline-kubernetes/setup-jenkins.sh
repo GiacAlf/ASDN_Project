@@ -2,9 +2,15 @@
 # README: questo script installa jenkins sul cluster kubernetes
 
 # varialbili
-JENKINS_DEPLOYMENT="Jenkins/jenkins_deployment.yaml"
-JENKINS_SERVICE="Jenkins/jenkins_service.yaml"
-JENKINS_SA_BINDING="Jenkins/jenkins_sa_binding.yaml"
+JENKINS_DEPLOYMENT="jenkins/jenkins-deployment.yaml"
+JENKINS_SERVICE="jenkins/jenkins-service.yaml"
+JENKINS_SA_BINDING="jenkins/jenkins-sa-binding.yaml"
+
+# disinstallazione di jenkins
+sudo kubectl delete -f $JENKINS_SA_BINDING
+sudo kubectl delete serviceaccount jenkins-sa
+sudo kubectl delete -f $JENKINS_SERVICE
+sudo kubectl apply -f $JENKINS_DEPLOYMENT
 
 # Passaggi per l'installazione di Jenkins
 echo "Installazione di Jenkins..."
@@ -36,9 +42,11 @@ CLUSTERDEPLO_PORT=$(sudo kubectl get svc clusterdeplo -o wide | awk '{if(NR>1) p
 APP_IP_PORT="${CONTROL_PLANE_IP}:${CLUSTERDEPLO_PORT}"
 
 # Stampa l'IP e la porta dell'applicazione
+echo
 echo "The application IP and port: $APP_IP_PORT"
+echo
 echo "The Jenkins IP is: 172.18.0.2:30000"
-
+echo
 # Recupera la password di Jenkins
 echo "Recupero password Jenkins..."
 sleep 30

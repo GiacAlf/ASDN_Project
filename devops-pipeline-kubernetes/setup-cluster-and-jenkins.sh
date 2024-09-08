@@ -8,11 +8,11 @@
 # ./setup_cluster_and_jenkins.sh
 
 # variabili
-CLUSTER_CONFIG="Cluster/kind-config.yaml"
-CLUSTER_DEPLOYMENT="Cluster/cluster_deployment.yaml"
-JENKINS_DEPLOYMENT="Jenkins/jenkins_deployment.yaml"
-JENKINS_SERVICE="Jenkins/jenkins_service.yaml"
-JENKINS_SA_BINDING="Jenkins/jenkins_sa_binding.yaml"
+CLUSTER_CONFIG="cluster/kind-config.yaml"
+CLUSTER_DEPLOYMENT="cluster/cluster-deployment.yaml"
+JENKINS_DEPLOYMENT="jenkins/jenkins-deployment.yaml"
+JENKINS_SERVICE="jenkins/jenkins-service.yaml"
+JENKINS_SA_BINDING="jenkins/jenkins-sa-binding.yaml"
 
 # Funzione per verificare se un comando è andato a buon fine
 check_command() {
