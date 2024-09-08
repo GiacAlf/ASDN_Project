@@ -1,3 +1,4 @@
+#!/bin/bash
 # README: questo script installa jenkins sul cluster kubernetes
 
 # varialbili

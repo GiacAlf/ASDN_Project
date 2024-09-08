@@ -4,7 +4,7 @@ sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pi
 
 
 # PER INSTALLARE TEKTON
-# importante: richiede versione kubernetes 1.28 o superiore (settata con l'immagine di kind nel kind-config.yaml)
+# importante: richiede versione kubernetes 1.28 o superiore (quindi controlalre se configurato nel file kind-config.yaml)
 
 # installazione tekton
 sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml

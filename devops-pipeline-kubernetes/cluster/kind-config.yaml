@@ -2,12 +2,12 @@ kind: Cluster
 apiVersion: kind.x-k8s.io/v1alpha4
 nodes:
   - role: control-plane
-    #image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes
+    image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes
     extraPortMappings:
       - containerPort: 80
         hostPort: 8080
         protocol: TCP
   - role: worker
-    #image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes
+    image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes
   - role: worker
-    #image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes
+    image: kindest/node:v1.28.0  # aggiunta per tekton: Specifica la versione di Kubernetes

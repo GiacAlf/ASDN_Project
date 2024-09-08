@@ -1,3 +1,4 @@
+#!/bin/bash
 # README: questo script distrugge e ricostruisce il cluster kubernetes ed
 # installa jenkins
 

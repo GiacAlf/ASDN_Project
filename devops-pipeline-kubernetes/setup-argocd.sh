@@ -1,3 +1,4 @@
+#!/bin/bash
 # questo script disinstalla e installa argocd
 
 
@@ -6,7 +7,7 @@ echo "Disinstallazione argocd..."
 sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 echo "Eliminazione Namespace..."
-sudo kubectl create namespace argocd
+sudo kubectl delete namespace argocd
 
 
 # installazione
