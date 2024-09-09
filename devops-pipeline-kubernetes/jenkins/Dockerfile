@@ -18,11 +18,14 @@ RUN apt update && apt install -y \
     lsb-release
 
 # Avvia il demone snapd
-RUN snap install core && \
-    snap refresh core
+#RUN snap install core && \
+    #snap refresh core
 
 # Installa kubectl tramite snap
-RUN snap install kubectl --classic
+#RUN snap install kubectl --classic
+
+# install kubernetes via curl
+RUN curl -LO https://dl.k8s.io/release/v1.31.0/bin/linux/arm64/kubectl
 
 # Aggiungi l'utente Jenkins al gruppo sudo
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
