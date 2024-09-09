@@ -27,6 +27,9 @@ RUN apt update && apt install -y \
 # install kubernetes via curl
 RUN curl -LO https://dl.k8s.io/release/v1.31.0/bin/linux/arm64/kubectl
 
+# sposto cartella
+RUN sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
 # Aggiungi l'utente Jenkins al gruppo sudo
 RUN echo "jenkins ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 

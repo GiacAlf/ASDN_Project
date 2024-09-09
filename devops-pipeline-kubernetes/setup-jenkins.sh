@@ -54,3 +54,4 @@ echo "Jenkins service account token per Kubectl: " && sudo kubectl create token 
 # entrare nel pod jenkins
 # sudo kubectl exec -it <JENKINS POD NAME> -- /bin/bash
 # sudo su
+
