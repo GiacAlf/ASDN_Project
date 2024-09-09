@@ -42,7 +42,7 @@ echo
 # Recupera la password di Jenkins
 echo "Recupero password Jenkins..."
 sleep 30
-echo "Jenkins password: " && sudo kubectl exec $(sudo kubectl get pods --all-namespaces | grep jenkins | awk '{print $2}') -- cat /var/jenkins_home/secrets/initialAdminPassword
+echo "Jenkins password:" $(sudo kubectl get pods | awk '/jenkins/{print $1}')
 
 # Recupera il token per il service account jenkins-sa
 echo "Creazione token jenkins per kubectl..."
