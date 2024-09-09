@@ -54,8 +54,3 @@ echo "Jenkins service account token per Kubectl: " && sudo kubectl create token 
 # entrare nel pod jenkins
 # sudo kubectl exec -it <JENKINS POD NAME> -- /bin/bash
 # sudo su
-# sudo apt update
-# sudo apt upgrade
-# sudo apt install snapd
-#forse
-# (sudo apt install kubernetes-client)
