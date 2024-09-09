@@ -46,7 +46,7 @@ echo "Jenkins password:" $(sudo kubectl get pods | awk '/jenkins/{print $1}')
 
 # Recupera il token per il service account jenkins-sa
 echo "Creazione token jenkins per kubectl..."
-echo "Jenkins service account token per Kubectl: " && sudo kubectl create token jenkins-sa
+echo "Jenkins service account token per Kubectl: " && sudo kubectl -n devops-tools create token jenkins-admin
 
 
 # passi successivi
