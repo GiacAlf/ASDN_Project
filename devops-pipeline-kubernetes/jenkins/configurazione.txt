@@ -10,9 +10,6 @@
 sudo kubectl -n devops-tools get pods #prende nome pod
 sudo kubectl -n devops-tools logs < NOME POD TROVATO> #trova la password d'accesso inizale jenkins
 
-per collegarsi a jenkins: http://172.18.0.2:32000/
-installare i plugin suggeriti e poi anche questi: kubernetes, kubernetes CLI e kubernetes pipeline
-
 sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm
 sudo kubectl exec -it -n devops-tools <NOME PDO TROVATO> -- /bin/bash # entra nel pod di jenkins
 
@@ -31,12 +28,16 @@ kubectl config set-credentials jenkins-admin --token=<TOKEN CREATO PRECEDENTEMEN
 #OPTIONAL# kubectl config set-credentials jenkins-admin --token=$ (solo nel job)<kube_token> #Sse le si vuole fare in un job
 
 kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insecure-skip-tls-verify=true #metterci l'ip del control-plane
-
 kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-admin #Crea un contesto associando il cluster e l'utente
-
 kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
-# Test: mostra i pod nel namespace corrente
+# dal browser
+
+per collegarsi a jenkins: http://172.18.0.2:32000/
+installare i plugin suggeriti e poi anche questi: kubernetes, kubernetes CLI, kubernetes pipeline,
+github integration, git, github branch source, pipeline github, github authentication (alcuni sono già installati, verificare)
+
+# kube-test: creare un job con execute shell cosi, se funziona è tutto ok
 kubectl get pods
 kubectl get pods -A
 kubectl cluster-info
