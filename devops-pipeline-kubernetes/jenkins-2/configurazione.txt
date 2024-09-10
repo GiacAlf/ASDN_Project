@@ -1,7 +1,23 @@
-Prendi il token dalla vm:
-sudo kubectl -n devops-tools create token jenkins-admin
+# lanciare nell'ordine:
+    namespace
+    serviceAccount
+    volume
+    deployment
+    service
+
+sudo kubectl -n devops-tools create token jenkins-admin #crea il token dalla vm
+sudo kubectl get pods -A #per vedere i nome dei pod
+sudo kubectl exec -it -n devops-tools <NOME PDO JENKINS> -- /bin/bash # entra nel pod di jenkins
 
 Comandi dentro jenkins:
+
+# installazione kubectl
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+chmod +x kubectl
+mkdir -p ~/.local/bin
+mv ./kubectl ~/.local/bin/kubectl
+
 # Configura kubectl con il token e il server API del cluster Kubernetes
 kubectl config set-credentials jenkins-admin --token=[$ (solo nel job)]<kube_token>
 kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insecure-skip-tls-verify=true
