@@ -33,6 +33,11 @@ kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
 # dal browser
 
+per collegarsi con l'app:
+
+sudo kubectl get nodes -o wide | grep control-plane | awk '{print $6}' #trova l'ip
+sudo kubectl get svc clusterdeplo -o wide | awk '{if(NR>1) print $5}' | cut -d':' -f2 | cut -d'/' -f1 #trova la porta
+
 per collegarsi a jenkins: http://172.18.0.2:32000/
 installare i plugin suggeriti e poi anche questi: kubernetes, kubernetes CLI, kubernetes pipeline,
 github integration, git, github branch source, pipeline github, github authentication (alcuni sono già installati, verificare)
