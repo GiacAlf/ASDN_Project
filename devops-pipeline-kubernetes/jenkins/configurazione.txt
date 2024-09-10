@@ -11,6 +11,7 @@ sudo kubectl -n devops-tools get pods #prende nome pod
 sudo kubectl -n devops-tools logs < NOME POD TROVATO> #trova la password d'accesso inizale jenkins
 
 per collegarsi a jenkins: http://172.18.0.2:32000/
+installare i plugin suggeriti e poi anche questi: kubernetes, kubernetes CLI e kubernetes pipeline
 
 sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm
 sudo kubectl exec -it -n devops-tools <NOME PDO TROVATO> -- /bin/bash # entra nel pod di jenkins
