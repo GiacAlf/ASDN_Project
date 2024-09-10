@@ -1,0 +1,41 @@
+# dopo aver creato il cluster:
+
+# lanciare nell'ordine:
+    namespace
+    serviceAccount
+    volume
+    deployment
+    service
+
+sudo kubectl -n devops-tools get pods #prende nome pod
+sudo kubectl -n devops-tools logs < NOME POD TROVATO> #trova la password d'accesso inizale jenkins
+
+per collegarsi a jenkins: http://172.18.0.2:32000/
+
+sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm
+sudo kubectl exec -it -n devops-tools <NOME PDO TROVATO> -- /bin/bash # entra nel pod di jenkins
+
+Comandi dentro pod jenkins:
+
+# installazione kubectl
+sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+sudo chmod +x kubectl
+mkdir -p ~/.local/bin
+sudo mv ./kubectl ~/.local/bin/kubectl
+
+# Configura kubectl con il token e il server API del cluster Kubernetes
+kubectl config set-credentials jenkins-admin --token=<TOKEN CREATO PRECEDENTEMENTE>
+
+#OPTIONAL# kubectl config set-credentials jenkins-admin --token=$ (solo nel job)<kube_token> #Sse le si vuole fare in un job
+
+kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insecure-skip-tls-verify=true #metterci l'ip del control-plane
+
+kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-admin #Crea un contesto associando il cluster e l'utente
+
+kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
+
+# Test: mostra i pod nel namespace corrente
+kubectl get pods
+kubectl get pods -A
+kubectl cluster-info
