@@ -150,7 +150,7 @@ ai privilegi di root per installare altro. Kubectl l'abbiamo installato con curl
 Fatto questo abbiamo cominciato a vedere i test che funzionavamo, quelli di kubectl.
 Per il collegamento a github è necessario settare il job, creare un webhook su github, che informa il job di triggerarsi 
 dietro la nostra push, ma si deve creare anche un modo grazie al quale la nostra macchina sia raggiungibile da github.
-
+proviamo con ngrok
 
 
 

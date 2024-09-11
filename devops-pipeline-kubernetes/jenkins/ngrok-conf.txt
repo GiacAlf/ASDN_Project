@@ -1,0 +1,7 @@
+come installare ngrok:
+
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz #farlo magari dentro downloads o documenti
+tar -xvzf ngrok-v3-stable-linux-arm64.tgz #szippa il file
+sudo mv ngrok /usr/local/bin/
+ngrok config add-authtoken <il_tuo_token> #si trova qui: https://dashboard.ngrok.com/get-started/your-authtoken
+ngrok http <porta_jenkins> #metterci la porta
