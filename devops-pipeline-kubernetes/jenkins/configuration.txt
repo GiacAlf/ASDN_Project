@@ -31,6 +31,12 @@ kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insec
 kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-admin #Crea un contesto associando il cluster e l'utente
 kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
+#installazione docker
+
+
+
+
+
 # dal browser
 
 per collegarsi con l'app:
