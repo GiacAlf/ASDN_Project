@@ -32,7 +32,11 @@ kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-ad
 kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
 #installazione docker
+https://docs.docker.com/engine/install/debian/ #segui le istruzioni
 
+#Installare plugin docker:
+#   - docker pupeline
+#   - docker
 
 
 
