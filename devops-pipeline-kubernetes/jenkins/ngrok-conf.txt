@@ -10,3 +10,4 @@ lanciato questo si blocca il terminale e c'è un link da inserire nel webhook di
 https://866d-91-254-166-52.ngrok-free.app
 
 bisognerà fare anche il port forwarding di kubernetes descritto il port-forwarding.txt
+
