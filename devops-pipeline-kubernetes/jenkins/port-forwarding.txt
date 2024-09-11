@@ -1,0 +1,3 @@
+per esporre il pod di jenkins all'esterno tramite localhost bisogna fare:
+
+sudo kubectl port-forward <POD JENKINS> -n devops-tools 32000:8080 #si trova il nome con sudo kubectl get pods -A e sta in devops-tools

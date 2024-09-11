@@ -4,5 +4,9 @@ wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz #farlo
 tar -xvzf ngrok-v3-stable-linux-arm64.tgz #szippa il file
 sudo mv ngrok /usr/local/bin/
 ngrok config add-authtoken <il_tuo_token> #si trova qui: https://dashboard.ngrok.com/get-started/your-authtoken
-ngrok http <porta_jenkins> #metterci la porta
+ngrok http <porta_jenkins> #metterci la porta 32000
 
+lanciato questo si blocca il terminale e c'è un link da inserire nel webhook di github del tipo:
+https://866d-91-254-166-52.ngrok-free.app
+
+bisognerà fare anche il port forwarding di kubernetes descritto il port-forwarding.txt
