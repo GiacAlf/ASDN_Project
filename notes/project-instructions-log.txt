@@ -66,7 +66,7 @@ curl <ip interno del nodo>:<porta esposta dal service all'esterno>
 interessa per ora.
 
 
- APPLICAZIONE: 172.18.0.3:32350
+ APPLICAZIONE: 172.18.0.3:32350 (che in realtà poi cambia l'ip e la porta)
 
 
 Quindi faremo curl 172.18.0.4:32350 per contattare la nostra applicazione
@@ -75,7 +75,7 @@ sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh #per entrare nel 
 modificando il file di config si sono aggiunte le configurazioni delle porte esposte.
 
 
-4 - JENKINS
+4 - JENKINS (obsoleto in parte, vedi 4-BIS)
 
 Jenkins dovrà:
     - collegarsi a github per verificare le nuove push;
@@ -103,7 +103,7 @@ ha creato un nuovo pod dentro in nodo kind-worker, ecco perchè:
     il master dedicato alla gestione del cluster.
 
 
-JENKINS: 172.18.0.2:30000
+JENKINS: 172.18.0.2:30000 (è 32000 ora)
 
 sudo kubectl get pods -o wide #per nome pod jenkins
 sudo kubectl logs <POD NAME> #per trovare la password
@@ -139,6 +139,17 @@ PAvHINxADMlUH3VgfCvizwgqli7M3iksaIuR0O0hprCiA2PASvydjqhrUvOPjq0BaZCQYhwXYVXHGfKC
 Per creare le credenziali:
 manage jenkins > credentials (sta dentro security) > system > click su global credentials > click su add credentials
 
+
+4-BIS:
+
+una volta fatto il setup del cluster abbiamo seguito la configurazione.txt dentro la cartella jenkins.
+Uno dei problemi principali era quelli che kubectl si installava in una cartella sbagliata e jenkins non lo trovava.
+Comunque era necessario crea l'immagine con già dentro installato almeno sudo altrimenti non si riusciva ad accedere 
+ai privilegi di root per installare altro. Kubectl l'abbiamo installato con curl.
+
+Fatto questo abbiamo cominciato a vedere i test che funzionavamo, quelli di kubectl.
+Per il collegamento a github è necessario settare il job, creare un webhook su github, che informa il job di triggerarsi 
+dietro la nostra push, ma si deve creare anche un modo grazie al quale la nostra macchina sia raggiungibile da github.
 
 
 
