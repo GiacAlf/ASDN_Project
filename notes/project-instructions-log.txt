@@ -5,7 +5,7 @@ LOG PROGETTO:
 
 sudo apt install snapd
 sudo snap install snapd
-[installazione docker e sudo systemctl start docker per farlo partire al boot]
+[installazione docker come da docker-commands.txt e sudo systemctl start docker per farlo partire al boot]
 sudo snap install kubectl --classic #installa kubectl
 
 

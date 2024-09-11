@@ -1,3 +1,6 @@
+#INSTALLAZIONE
+seguire guida quì https://docs.docker.com/engine/install/debian/
+
 COMANDI DOCKER:
 sudo docker ps: fa vedere i container running
 sudo docker ps -a: container running e in stop
