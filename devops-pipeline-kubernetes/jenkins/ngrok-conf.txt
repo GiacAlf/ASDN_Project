@@ -5,3 +5,4 @@ tar -xvzf ngrok-v3-stable-linux-arm64.tgz #szippa il file
 sudo mv ngrok /usr/local/bin/
 ngrok config add-authtoken <il_tuo_token> #si trova qui: https://dashboard.ngrok.com/get-started/your-authtoken
 ngrok http <porta_jenkins> #metterci la porta
+
