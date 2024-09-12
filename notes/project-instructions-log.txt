@@ -66,7 +66,8 @@ curl <ip interno del nodo>:<porta esposta dal service all'esterno>
 interessa per ora.
 
 
- APPLICAZIONE: 172.18.0.3:32350 (che in realtà poi cambia l'ip e la porta)
+ APPLICAZIONE: http://172.18.0.2:30668/ #Giacomo
+ JENKINS: http://172.18.0.3:32000/ #Giacomo
 
 
 Quindi faremo curl 172.18.0.4:32350 per contattare la nostra applicazione

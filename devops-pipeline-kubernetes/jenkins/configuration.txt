@@ -31,37 +31,36 @@ kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insec
 kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-admin #Crea un contesto associando il cluster e l'utente
 kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
-#installazione docker (dentro pod jenkins)
-
+#installazione docker generale
 https://docs.docker.com/engine/install/debian/ #segui le istruzioni
 
-#nodo dove è jenkins: kind-worker
+IMPORTANTE!!!
+per risolvere il problema che jenkins non può usare docker, per via dell'accesso al demone, fare la seguente cosa nel nodo dove sta jenkins:
 
-oppure i comandi fatti sono:
-for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
-  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
-sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+#installazione docker nel nodo, ossia nel container docker (nodo dove è jenkins di Giacomo: kind-worker o a89efbbceffa)
+si dovrebbero avere già i permessi di root ma nel caso fare su -, però ce li abbiamo i permessi di root (verificato)
+
+sudo docker exec -it kind-worker bash #per entrare nel nodo
+
+apt-get update
+apt-get install -y ca-certificates curl gnupg lsb-release
+mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/debian/gpg | tee /etc/apt/keyrings/docker.asc
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list
+apt-get update
+apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+docker --version #per verifica
+systemctl start docker #demone parte subito
+systemctl enable docker #demone parte all'avvio sempre
+
+#fuori dal pod, dal terminale "normale" applicare il nuovo 4-deployment.yaml dove è stata aggiunta la socket.
 
 
-
-
-#Installare plugin docker:
+#Installare plugin docker in jenkins:
 #   - docker pupeline
 #   - docker
 
-
-
-
 # dal browser
-
 per collegarsi con l'app:
 
 sudo kubectl get nodes -o wide | grep control-plane | awk '{print $6}' #trova l'ip
