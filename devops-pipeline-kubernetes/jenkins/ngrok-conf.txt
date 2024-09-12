@@ -1,5 +1,6 @@
 come installare ngrok:
 
+andare in questo sito https://dashboard.ngrok.com/get-started/your-authtoken ed iscriversi
 wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-arm64.tgz #farlo magari dentro downloads o documenti
 tar -xvzf ngrok-v3-stable-linux-arm64.tgz #szippa il file
 sudo mv ngrok /usr/local/bin/
