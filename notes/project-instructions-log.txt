@@ -168,6 +168,8 @@ sudo apt install ansible #installare ansible
 creata cartella ansible con file, specialmente il /.kube/config
 modificato poi il yaml per funzionare senza bisogno di SSH
 sudo apt install python3-kubernetes
+sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null #per creare la cartella
+lanciare poi il comando assicurandosi che sia fatto il docker login
 
 
 6 - GRAFANA

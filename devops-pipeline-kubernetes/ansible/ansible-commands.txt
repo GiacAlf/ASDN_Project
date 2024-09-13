@@ -1,4 +1,10 @@
+# per creare il file
+
+sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+
 # per lanciare i file
+
+#ATTENZIONE: assicurarsi di essere loggato in dockerhub facendo docker login
 
 ansible-playbook -i marta-inventory.ini load_balancer.yml #il file deve stare dentro la cartella dove si è, altrimenti fornire il path
 ansible-playbook -i giacomo-inventory.ini load_balancer.yml
