@@ -159,7 +159,6 @@ sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #ve
 L'iimagine di jenkins su dockerhub non aveva nulla dentro, quindi si è creato un dockerfile apposito per installarci tutto, 
 poi pushato su dockerhub e rideployato col file yaml di deploy di jenkins
 
-
 5 - OPERATE
 
 Ansible:
@@ -170,6 +169,5 @@ modificato poi il yaml per funzionare senza bisogno di SSH
 sudo apt install python3-kubernetes
 sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null #per creare la cartella
 lanciare poi il comando assicurandosi che sia fatto il docker login
-
 
 6 - GRAFANA
