@@ -1,0 +1,2 @@
+# per creare .kube:
+sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null

@@ -1,0 +1,7 @@
+# per lanciare i file
+
+ansible-playbook -i marta-inventory.ini load_balancer.yml
+ansible-playbook -i giacomo-inventory.ini load_balancer.yml
+
+ansible-playbook -i marta-inventory.ini scale.yml
+ansible-playbook -i giacomo-inventory.ini scale.yml

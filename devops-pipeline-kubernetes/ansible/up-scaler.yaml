@@ -1,0 +1,15 @@
+- name: Scala il numero di repliche in Kubernetes
+  hosts: k8s_master
+  tasks:
+    - name: Applicare la configurazione di scaling
+      kubernetes.core.k8s:
+        kubeconfig: devops-pipeline-kubernetes/cluster/.kube/config
+        state: present
+        definition:
+          apiVersion: apps/v1
+          kind: Deployment
+          metadata:
+            name: my-app-deployment
+            namespace: default
+          spec:
+            replicas: 4
