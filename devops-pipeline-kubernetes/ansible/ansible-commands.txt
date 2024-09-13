@@ -6,10 +6,13 @@ sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
 
 #ATTENZIONE: assicurarsi di essere loggato in dockerhub facendo docker login
 
-ansible-playbook -i marta-inventory.ini load_balancer.yml #il file deve stare dentro la cartella dove si è, altrimenti fornire il path
-ansible-playbook -i giacomo-inventory.ini load_balancer.yml
+ansible-playbook -i marta-inventory.ini load-balancer.yaml #il file deve stare dentro la cartella dove si è, altrimenti fornire il path
+ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
 
-ansible-playbook -i marta-inventory.ini scale.yml
-ansible-playbook -i giacomo-inventory.ini scale.yml
+ansible-playbook -i marta-inventory.ini up-scaler.yaml
+ansible-playbook -i giacomo-inventory.ini up-scaler.yaml
+
+ansible-playbook -i marta-inventory.ini down-scaler.yaml
+ansible-playbook -i giacomo-inventory.ini down-scaler.yaml
 
 sudo kubectl delete deployment my-app-deployment #per cancellare il deployment, mettre il nome del deploy dentro il file yaml
