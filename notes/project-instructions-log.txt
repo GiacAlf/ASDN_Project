@@ -153,10 +153,6 @@ Per il collegamento a github è necessario settare il job, creare un webhook su 
 dietro la nostra push, ma si deve creare anche un modo grazie al quale la nostra macchina sia raggiungibile da github.
 proviamo con ngrok.
 
-
-
-
-
 troubleshooting:
 sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080 #vedo se funziona jenkins da dentro il container
 
@@ -164,12 +160,14 @@ L'iimagine di jenkins su dockerhub non aveva nulla dentro, quindi si è creato u
 poi pushato su dockerhub e rideployato col file yaml di deploy di jenkins
 
 
-
-
-
-
 5 - OPERATE
 
+Ansible:
+
+sudo apt install ansible #installare ansible
+creata cartella ansible con file, specialmente il /.kube/config
+modificato poi il yaml per funzionare senza bisogno di SSH
+sudo apt install python3-kubernetes
 
 
 6 - GRAFANA

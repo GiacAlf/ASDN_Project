@@ -1,7 +1,9 @@
 # per lanciare i file
 
-ansible-playbook -i marta-inventory.ini load_balancer.yml
+ansible-playbook -i marta-inventory.ini load_balancer.yml #il file deve stare dentro la cartella dove si è, altrimenti fornire il path
 ansible-playbook -i giacomo-inventory.ini load_balancer.yml
 
 ansible-playbook -i marta-inventory.ini scale.yml
 ansible-playbook -i giacomo-inventory.ini scale.yml
+
+sudo kubectl delete deployment my-app-deployment #per cancellare il deployment, mettre il nome del deploy dentro il file yaml
