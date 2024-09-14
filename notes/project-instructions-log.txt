@@ -264,6 +264,14 @@ NOTES:
 # poi fare questo per recuperare la password: [Giacomo: nj9FfKXu3Zdrkbxd0NdBqFwWX9mjRBql0W1JeDJz]
 sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo 
 
+# se la password non funziona si può resettare:
+
+#pod grafana Giacomo: grafana-6cbc6cc9b8-xhn4x
+sudo kubectl exec -n monitoring grafana-6cbc6cc9b8-xhn4x -- grafana cli admin reset-admin-password admin
+
+sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin reset-admin-password <nuova-password>
+
+
 # port forwarding
 sudo kubectl port-forward -n monitoring svc/grafana 3000:80
 # ora si può accedere a grafana da qua: http://localhost:3000
