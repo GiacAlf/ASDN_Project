@@ -265,8 +265,7 @@ NOTES:
 sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo 
 
 # port forwarding
-sudo kubectl port-forward svc/grafana 3000:80 -n monitoring
-
+sudo kubectl port-forward -n monitoring svc/grafana 3000:80
 # ora si può accedere a grafana da qua: http://localhost:3000
 
 
