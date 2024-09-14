@@ -182,7 +182,7 @@ sudo helm repo update
 sudo kubectl create namespace monitoring
 
 # installazione prometheus
-helm install prometheus prometheus-community/prometheus --namespace monitoring
+sudo helm install prometheus prometheus-community/prometheus --namespace monitoring
 
 
 # dopo il precedente comando dovrebbe apparire una cosa del genere:
@@ -228,7 +228,46 @@ https://prometheus.io/
 
 # fine stampa di installazione Prometheus
 
+
 # installazione grafana
 sudo helm install grafana grafana/grafana --namespace monitoring
 
+# dopo si dovrebbe vedere una cosa del genere:
+
+NAME: grafana
+LAST DEPLOYED: Sat Sep 14 13:05:46 2024
+NAMESPACE: monitoring
+STATUS: deployed
+REVISION: 1
+NOTES:
+1. Get your 'admin' user password by running:
+
+   kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+
+2. The Grafana server can be accessed via port 80 on the following DNS name from within your cluster:
+
+   grafana.monitoring.svc.cluster.local
+
+   Get the Grafana URL to visit by running these commands in the same shell:
+     export POD_NAME=$(kubectl get pods --namespace monitoring -l "app.kubernetes.io/name=grafana,app.kubernetes.io/instance=grafana" -o jsonpath="{.items[0].metadata.name}")
+     kubectl --namespace monitoring port-forward $POD_NAME 3000
+
+3. Login with the password from step 1 and the username: admin
+#################################################################################
+######   WARNING: Persistence is disabled!!! You will lose your data when   #####
+######            the Grafana pod is terminated.                            #####
+#################################################################################
+
+# fine stampa grafana
+
+# poi fare questo per recuperare la password: [Giacomo: nj9FfKXu3Zdrkbxd0NdBqFwWX9mjRBql0W1JeDJz]
+sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo 
+
 # port forwarding
+sudo kubectl port-forward svc/grafana 3000:80 -n monitoring
+
+# ora si può accedere a grafana da qua: http://localhost:3000
+
+
+
