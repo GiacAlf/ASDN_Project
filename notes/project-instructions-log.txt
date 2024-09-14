@@ -164,10 +164,11 @@ poi pushato su dockerhub e rideployato col file yaml di deploy di jenkins
 Ansible:
 
 sudo apt install ansible #installare ansible
-creata cartella ansible con file, specialmente il /.kube/config
+creata cartella ansible con file, specialmente il /.kube/config con sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
 modificato poi il yaml per funzionare senza bisogno di SSH
-sudo apt install python3-kubernetes
-sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null #per creare la cartella
+sudo apt install python3-kubernetes #per far funzionare il tutto
+
 lanciare poi il comando assicurandosi che sia fatto il docker login
 
 6 - GRAFANA
+

@@ -1,20 +1,21 @@
+---
 - name: Configura il Load Balancer in Kubernetes
-  hosts: k8s_master
+  hosts: localhost
   tasks:
     - name: Applicare la configurazione del Load Balancer
       kubernetes.core.k8s:
-        kubeconfig: devops-pipeline-kubernetes/cluster/.kube/config
+        kubeconfig: "{{ lookup('env', 'KUBECONFIG') | default('devops-pipeline-kubernetes/cluster/.kube/config') }}"
         state: present
         definition:
           apiVersion: v1
           kind: Service
           metadata:
-            name: my-loadbalancer
+            name: clusterdeplo-loadbalancer
             namespace: default
           spec:
             type: LoadBalancer
             selector:
-              app: my-app
+              app: clusterdeplo
             ports:
               - protocol: TCP
                 port: 80
