@@ -183,7 +183,7 @@ sudo kubectl create namespace monitoring
 
 # installazione prometheus
 sudo helm install prometheus prometheus-community/prometheus --namespace monitoring
-
+# se i pod hanno problemi, dopo aver installato grafana, fare uninstall e poi install di prometheus
 
 # dopo il precedente comando dovrebbe apparire una cosa del genere:
 
@@ -273,8 +273,8 @@ sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin rese
 
 
 # port forwarding
-sudo kubectl port-forward -n monitoring svc/grafana 3000:80
-# ora si può accedere a grafana da qua: http://localhost:3000
+sudo kubectl port-forward -n monitoring svc/grafana 3001:80
+# ora si può accedere a grafana da qua: http://localhost:3001
 
 
 
