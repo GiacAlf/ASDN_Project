@@ -1,11 +1,14 @@
 # per creare il file
-
-sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null # da fare dentro /cluster
 
 # per lanciare i file
-
 #ATTENZIONE: assicurarsi di essere loggato in dockerhub facendo docker login
 
+# se dovesse dar eerrori relativi al config fare:
+export KUBECONFIG=/home/<GIACOMO O MARTA>/ASDN_project/devops-pipeline-kubernetes/cluster/.kube/config
+
+
+# da lanciare dentro /ansible
 ansible-playbook -i marta-inventory.ini load-balancer.yaml #il file deve stare dentro la cartella dove si è, altrimenti fornire il path
 ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
 
