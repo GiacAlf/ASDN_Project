@@ -276,5 +276,7 @@ sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin rese
 sudo kubectl port-forward -n monitoring svc/grafana 3001:80
 # ora si può accedere a grafana da qua: http://localhost:3001
 
-
+# in grafana selezionare su configuration > data sources > add data source, cliccare su prometheus ed inserire l'url:
+http://prometheus-server.monitoring.svc.cluster.local
+poi save & test
 
