@@ -172,6 +172,8 @@ sudo apt install python3-kubernetes #per far funzionare il tutto
 lanciare poi il comando assicurandosi che sia fatto il docker login
 
 6 - GRAFANA E PROMETHEUS
+#se non c'è helm, procedere con l'installazione 
+sudo snap install helm --classic
 
 # aggiunta repository (sudo importante sennò sembra che lo fa ma invece non lo fa!)
 sudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
@@ -261,13 +263,18 @@ NOTES:
 
 # fine stampa grafana
 
-# poi fare questo per recuperare la password: [Giacomo: nj9FfKXu3Zdrkbxd0NdBqFwWX9mjRBql0W1JeDJz]
+# poi fare questo per recuperare la password: 
+#[Giacomo: nj9FfKXu3Zdrkbxd0NdBqFwWX9mjRBql0W1JeDJz] 
+#[Marta: dF7Huj74VML2rgELtLISXHu1dQkUSEPpd7EsL55v]
 sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo 
 
-# se la password non funziona si può resettare:
 
 #pod grafana Giacomo: grafana-6cbc6cc9b8-xhn4x
-sudo kubectl exec -n monitoring grafana-6cbc6cc9b8-xhn4x -- grafana cli admin reset-admin-password admin
+#pod grafana Marta: grafana-9f659f756-fz96q
+
+
+# se la password non funziona si può resettare:
+#sudo kubectl exec -n monitoring grafana-6cbc6cc9b8-xhn4x -- grafana cli admin reset-admin-password admin
 
 sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin reset-admin-password <nuova-password>
 
@@ -280,3 +287,13 @@ sudo kubectl port-forward -n monitoring svc/grafana 3001:80
 http://prometheus-server.monitoring.svc.cluster.local
 poi save & test
 
+#Se non funziona => trovare il Cluster-IP di prometus-server con:
+sudo kubectl get svc -n monitoring 
+
+#Inserire l'ip nel link:
+http://10.96.175.99
+
+#Dopo di chè andare su create new dashboard ed inserire l'id 315, quindi importare.
+#si aprirà la dashboard.
+
+#FINE!!!
