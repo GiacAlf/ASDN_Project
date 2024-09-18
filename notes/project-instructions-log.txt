@@ -276,24 +276,4 @@ sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin
 # se la password non funziona si può resettare:
 #sudo kubectl exec -n monitoring grafana-6cbc6cc9b8-xhn4x -- grafana cli admin reset-admin-password admin
 
-sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin reset-admin-password <nuova-password>
-
-
-# port forwarding
-sudo kubectl port-forward -n monitoring svc/grafana 3001:80
-# ora si può accedere a grafana da qua: http://localhost:3001
-
-# in grafana selezionare su configuration > data sources > add data source, cliccare su prometheus ed inserire l'url:
-http://prometheus-server.monitoring.svc.cluster.local
-poi save & test
-
-#Se non funziona => trovare il Cluster-IP di prometus-server con:
-sudo kubectl get svc -n monitoring 
-
-#Inserire l'ip nel link:
-http://10.96.175.99
-
-#Dopo di chè andare su create new dashboard ed inserire l'id 315, quindi importare.
-#si aprirà la dashboard.
-
-#FINE!!!
+sudo kubectl exec -n monitoring <nome-del-pod-grafana> -- grafana cli admin reset-admin-password <nuova-password
