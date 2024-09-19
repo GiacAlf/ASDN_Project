@@ -13,6 +13,15 @@ sudo kubectl -n devops-tools logs < NOME POD TROVATO> #trova la password d'acces
 sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm
 sudo kubectl exec -it -n devops-tools <NOME PDO TROVATO> -- /bin/bash # entra nel pod di jenkins
 
+# inizialmente questi comandi erano nel dockerfile ma poi sostituiti da comandi manuali
+
+
+# install kubernetes via curl
+#RUN curl -LO https://dl.k8s.io/release/v1.31.0/bin/linux/arm64/kubectl
+
+# sposto cartella
+#RUN sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
 Comandi dentro pod jenkins:
 
 # installazione kubectl
