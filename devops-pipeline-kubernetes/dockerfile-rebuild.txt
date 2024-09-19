@@ -1,2 +1,0 @@
-sudo docker build -t giacomoalfani/asdn_project:latest .
-sudo docker push giacomoalfani/asdn_project:latest

@@ -1,2 +1,0 @@
-sudo docker build -t giacomoalfani/jenkins_custom .
-sudo docker push giacomoalfani/jenkins_custom:latest

@@ -1,0 +1,1000 @@
+  607  sudo kubectl get pods
+  608  sudo kubectl cluster-info
+  609  sudo kubectl cluster-info dump
+  610  ls
+  611  sudo docker build -t asdn_project .
+  612  sudo docker images
+  613  sudo docker login
+  614  sudo docker push giacomoalfani/asdn_project:latest
+  615  sudo docker rmi asdn_project
+  616  sudo docker images
+  617  sudo docker build -t giacomoalfani/asdn_project .
+  618  sudo docker push giacomoalfani/asdn_project:latest
+  619  sudo systemctl start docker
+  620  sudo kubectl get pods
+  621  sudo kubectl get all
+  622  sudo kubectl cluster-info
+  623  sudo docker ps
+  624  sudo kubectl cluster-info --context kind-kind
+  625  ip a
+  626  sudo kubectl apply -f deployment.yaml
+  627  sudo kubectl apply -f cluster_deployment.yaml
+  628  sudo kubectl get deployment
+  629  sudo kubectl cluster-info
+  630  sudo kubectl get all
+  631  sudo docker ps
+  632  sudo docker inspect 547b59ed76b4
+  633  sudo kubectl get pods -o wide
+  634  sudo kubectl expose deployment cluster_deployment --type=NodePort --port=80
+  635  sudo kubectl get all
+  636  sudo kubectl expose deployment clusterdeplo --type=NodePort --port=80
+  637  sudo kubectl get all
+  638  sudo docker ps
+  639  sudo kubectl get pods -o wide
+  640  curl 10.244.1.2
+  641  curl 10.244.1.2:32662
+  642  curl 10.96.9.76:32662
+  643  sudo kubectl get service clusterdeplo
+  644  curl http://10.96.9.76:32662
+  645  sudo kubectl get nodes -o wide
+  646  curl 172.18.0.3:32662
+  647  curl 172.18.0.2:32662
+  648  curl localhost:32662
+  649  curl http://localhost:32662
+  650  sudo kubectl get service clusterdeplo
+  651  sudo docker ps
+  652  sudo docker inspect 547b59ed76b4 | grep IPAddress
+  653  sudo kubectl get nodes
+  654  sudo kubectl get nodes -o wide
+  655  curl 172.18.0.2:32662
+  656  curl localhost:8080
+  657  sudo kubectl get pods
+  658  sudo kubectl get all
+  659  sudo kind delete cluster
+  660  sudo kind create cluster --config kind-config.yaml
+  661  curl localhost:8080
+  662  sudo kubectl get all
+  663  sudo kind get cluster
+  664  sudo kind get clusters
+  665  sudo kind get nodes
+  666  sudo kind export kubeconfig --name kind
+  667  sudo kubectl config get-contexts
+  668  sudo kubectl config use-context kind-kind
+  669  sudo kubectl cluster-info
+  670  sudo kubectl get all
+  671  sudo kubectl apply -f cluster_deployment.yaml
+  672  sudo kubectl get all
+  673  sudo kubectl expose deployment <DEPLOY NAME> --type=NodePort --port=80
+  674  sudo kubectl expose deployment clusterdeplo --type=NodePort --port=80
+  675  sudo kubectl get nodes -o wide
+  676  curl localhost:32662
+  677  curl http://localhost:32662
+  678  curl http://localhost:8080
+  679  curl localhost:8080
+  680  curl localhost
+  681  curl localhost:8080
+  682  sudo kubectl get podds -o wide
+  683  sudo kubectl get pods -o wide
+  684  sudo kubectl get services
+  685  sudo kubectl exec -it clusterdeplo-7c6bcfb8c6-6wcc2 -- /bin/sh
+  686  sudo kubectl get all
+  687  sudo kubectl get nodes -o wide
+  688  curl 172.18.0.4:31852
+  689  curl 172.18.0.4:8080
+  690  curl 172.18.0.4:80
+  691  curl 172.18.0.2:31852
+  692  sudo kubectl get all
+  693  sudo kubectl get node-o wide
+  694  sudo kubectl get nodes -o wide
+  695  sudo kubectl get services
+  696  sudo kubectl apply -f jenkins_deployment.yaml
+  697  ls
+  698  sudo kubectl apply -f jenkins_deployment.yaml
+  699  sudo kubectl get all
+  700  sudo kubectl apply -f jenkins_service.yaml
+  701  sudo kubectl get all
+  702  sudo kubectl get pods -o wide
+  703  sudo kubectl get nodes -o wide
+  704  sudo kubectl logs jenkins-55c5796998-6wfvf
+  705  sudo kubectl get pods -0 wide
+  706  sudo kubectl get pods -o wide
+  707  sudo kubectl get services
+  708  sudo kubectl get nodes -o wide
+  709  sudo kubctl get svc jenkins
+  710  sudo kubectl get svc jenkins
+  711  sudo kubectl get services
+  712  sudo kubectl get svc jenkins-service
+  713  sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080
+  714  curl http://172.18.0.2:30000
+  715  sudo kubectl describe svc jenkins-service
+  716  sudo kubectl get nodes -o wide
+  717  sudo kubectl exec -it jenkins-55c5796998-6wfvf -- netstat -tuln
+  718  sudo kubectl exec -it jenkins-55c5796998-6wfvf -- curl http://localhost:8080
+  719  sudo kubectl apply -f 
+  720  sudo kubectl apply -f jenkins_deployment.yaml 
+  721  sudo kubectl get services
+  722  sudo kubectl get pods -o wide
+  723  sudo kubectl logs jenkins-6d8d7f5f9b-bgf98
+  724  sudo kubectl create serviceaccount jenkins-sa
+  725  sudo kubectl apply -f jenkins_sa_binding.yaml
+  726  sudo kubectl get secrets -n default
+  727  sudo kubectl get secrets -A
+  728  sudo describe secret bootstrap-token-abcdef
+  729  sudo kubectl describe secret bootstrap-token-abcdef
+  730  sudo kubectl describe secret bootstrap-token-abcdef -A
+  731  sudo kubectl describe secret bootstrap-token-abcdef -n kube-system
+  732  sudo kubectl describe secret bootstrap-token-abcdef -n kube-system -o wide
+  733  sudo kubectl get secret -n kube.system
+  734  sudo kubectl get secret -n kube-system
+  735  sudo kubectl get secret -n kube-system -0 wide
+  736  sudo kubectl get secret -n kube-system -o wide
+  737  sudo kubectl describe secret --help
+  738  sudo kubectl describe secret bootstrap-token-abcdef -n kube-system
+  739  sudo kubectl get all
+  740  sudo kubectl get all -A
+  741  sudo kubectl get serviceaccount
+  742  [200~kubectl create clusterrolebinding jenkins-sa-binding --clusterrole=cluster-admin --serviceaccount=kube-system:jenkins-sa
+  743  sudo kubectl create clusterrolebinding jenkins-sa-binding --clusterrole=cluster-admin --serviceaccount=kube-system:jenkins-sa
+  744  sudo kubectl get secrets -n kube-system
+  745  sudo kubectl create token jenkins-sa -n kube-system
+  746  sudo kubectl create token jenkins-sa
+  747  cd .
+  748  cd ..
+  749  sudo parted /dev/nvme0n1
+  750  sudo apt-get autoremove
+  751  sudo apt-get clean
+  752  sudo apt-get autoclean
+  753  sudo swapoff -a
+  754  sudo swapon --show
+  755  sudo mkswap /dev/nvme0n1p3
+  756  sudo swapon /dev/nvme0n1p3
+  757  sudo nano /etc/fstab
+  758  sudo swapon --show
+  759  sudo blkid
+  760  cd /dev/sdX1
+  761  lsblk
+  762  sudo fdisk -l
+  763  cd /dev/sda
+  764  cd /
+  765  cd /dev/sda
+  766  ls
+  767  cd dev
+  768  ls
+  769  sudo apt update
+  770  sudo apt upgrade
+  771  sudo apt update
+  772  sudo apt upgrade
+  773  cd Jenkins/
+  774  sudo docker build -t giacomoalfani/jenkins_custom .
+  775  sudo docker login
+  776  sudo docker push giacomoalfani/jenkins_custom:latest
+  777  sudo kubectl apply -f jenkins_deployment.yaml 
+  778  sudo kubectl get pods -o wide
+  779  sudo kubectl logs jenkins-6cf4f6fb78-qk5cx
+  780  sudo kubectl get all
+  781  sudo kubectl get services
+  782  sudo kubectl get serviceaccount jenkins-sa
+  783  sudo kubectl exec -it jenkins-6cf4f6fb78-qk5cx -- /bin/bash
+  784  sudo kubectl get services -A
+  785  sudo kubectl get services -o wide -A
+  786  sudo kubectl get pods -n kube-system -l k8s-app=kube-dns
+  787  sudo kubectl logs -n kube-system coredns-5d78c9869d-klhlc
+  788  sudo kubectl get pods -n kube-system -l component=kube-apiserver
+  789  sudo kubectl get configmap coredns -n kube-system -o yaml
+  790  sudo kubectl delete pod -n kube-system -l k8s-app=kube-dns
+  791  sudo kubectl get pods -A
+  792  sudo kubectl exec -it coredns-5d78c9869d-s5tfp -n kube-system -- curl -v https://10.96.0.1:443/version
+  793  sudo kubectl exec -it coredns-5d78c9869d-s5tfp -n kube-system -- ping -v https://10.96.0.1:443/version
+  794  sudo kubectl exec -it coredns-5d78c9869d-s5tfp -n kube-system -- wget -spider https://10.96.0.1:443/version
+  795  cd DevOps_Pipeline_Kubernetes/Jenkins/
+  796  sudo kubectl apply -f jenkins_deployment.yaml 
+  797  sudo kubectl get pods-o wide
+  798  sudo kubectl get pods -o wide
+  799  sudo kubectl logs jenkins-7dbf45874-wm49k
+  800  sudo kubectl get services -A
+  801  sudo kubectl create serviceaccount jenkins-sa
+  802  sudo kubectl delete serviceaccount jenkins-sa
+  803  sudo kubectl create serviceaccount jenkins-sa
+  804  cd DevOps_Pipeline_Kubernetes/Jenkins/
+  805  sudo kubectl apply -f jenkins_sa_binding.yaml
+  806  sudo kubectl get secret -A
+  807  sudo kubectl get secret
+  808  sudo kubectl get secret -A
+  809  sudo kubectl create token jenkins-sa
+  810  sudo kubectl svc -A
+  811  sudo kubectl get svc -A
+  812  sudo kubectl get endpoints -A
+  813  sudo kubectl get pods -n kube-system -l k8s-app=kube-dns
+  814  sudo kubectl logs -n kube-system coredns-5d78c9869d-s5tfp
+  815  sudo kubectl get configmap coredns -n kube-system -o yaml
+  816  sudo kubectl describe pod coredns-5d78c9869d-s5tfp -n kube-system
+  817  cd ..
+  818  sudo kind delete cluster #rimuove tutti i nodi del cluster
+  819  sudo kind cluster
+  820  sudo kind get cluster
+  821  sudo kind get clusters
+  822  sudo docker ps
+  823  sudo kind delete cluster #rimuove tutti i nodi del cluster
+  824  sudo kind create cluster --config Cluster/kind-config.yaml
+  825  sudo kind export kubeconfig --name kind
+  826  sudo kubectl config use-context kind-kind
+  827  sudo docker pull giacomoalfani/asdn_project:latest
+  828  sudo kubectl apply -f Cluster/cluster_deployment.yaml
+  829  sudo kubectl expose deployment clusterdeplo --type=NodePort --port=80
+  830  sudo kubectl get nodes
+  831  sudo kubectl get nodes -o wide
+  832  sudo kubectl get services -o wide
+  833  sudo kubectl apply -f Jenkins/jenkins_deployment.yaml
+  834  sudo kubectl apply -f Jenkins/jenkins_service.yaml
+  835  sudo kubectl create serviceaccount jenkins-sa
+  836  sudo kubectl apply -f Jenkins/jenkins_sa_binding.yaml
+  837  sudo kubectl get secret -A
+  838  sudo kubectl get pods -o wide
+  839  sudo kubectl logs jenkins-5457b4b7bd-2zwjc
+  840  sudo kubectl get pods -o wide
+  841  sudo kubectl get secret -A
+  842  sudo kubectl describe secret bootstrap-token-abcdef
+  843  sudo kubectl describe secret bootstrap-token-abcdef -A
+  844  sudo kubectl create token jenkins-sa
+  845  sudo docker ps
+  846  sudo kubectl get pods
+  847  sudo kubectl get nodes -o wide
+  848  sudo kubectl get services -A
+  849  kubctl --help
+  850  kubectl --help
+  851  kubectl cluster-info
+  852  sudo kubectl cluster-info
+  853  kubectl list events
+  854  kubectl events
+  855  chmod +x setup_cluster_and_jenkins.sh 
+  856  sudo kubectl get svc kubernetes -o jsonpath='{.spec.clusterIP}'
+  857  sudo kubectl get nodes -o wide | grep control-plane | awk '{print $6}'
+  858  sudo kubectl get svc clusterdeplo -o wide | awk '{if(NR>1) print $5}' | cut -d':' -f2 | cut -d'/' -f1
+  859  ls
+  860  sudo ls /root
+  861  JENKINS_POD=$(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}')
+  862  sudo kubectl logs $JENKINS_POD | grep -oP '(?<=\bPassword:\s)\S+'
+  863  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | grep -oP '(?<=\bPassword:\s)\S+'
+  864  sudo kubectl get pods -o wide
+  865  sudo kubectl logs jenkins-5457b4b7bd-2zwjc
+  866  cat /var/jenkins_home/secrets/initialAdminPassword
+  867  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | grep -oP '(?<=proceed to installation:\s)(\S+)'
+  868  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}'
+  869  find kubectl
+  870  cd /
+  871  ls
+  872  cd snap/
+  873  ls
+  874  cd kubectl/
+  875  ls
+  876  cd /
+  877  cd usr/
+  878  ls
+  879  cd local/bin/
+  880  ls
+  881  cd /
+  882  which kubectl 
+  883  cd usr/bin/
+  884  ls
+  885  cd snap
+  886  ls -la
+  887  ls -la | grep snap
+  888  ls -la | grep snap | file
+  889  file | ls -la | grep snap
+  890  cd /
+  891  ls
+  892  cd home/
+  893  ls
+  894  cd giacomo/
+  895  ls
+  896  cd ASDN_project/DevOps_Pipeline_Kubernetes/
+  897  chmod +x ./temp.sh 
+  898  ./temp.sh 
+  899  ./setup_cluster_and_jenkins.sh 
+  900  (sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}')
+  901  kubectl --version
+  902  kubectl -v
+  903  kubectl -version
+  904  kubectl --v
+  905  sudo kubectl --v
+  906  sudo kubectl --version
+  907  kubectl --help
+  908  kubectl version
+  909  sudo kubectl get clustes
+  910  sudo kubectl get clusters
+  911  sudo kubectl get cluster
+  912  sudo kubectl cluster-info
+  913  sudo kubectl get nodes
+  914  sudo kubectl get pods
+  915  sudo kubectl get all -A
+  916  sudo docker ps
+  917  (sudo kubectl get nodes -o wide | grep control-plane | awk '{print $6}')
+  918  sudo kubectl get svc clusterdeplo -o wide | awk '{if(NR>1) print $5}' | cut -d':' -f2 | cut -d'/' -f1)
+  919  sudo kubectl get svc clusterdeplo -o wide | awk '{if(NR>1) print $5}' | cut -d':' -f2 | cut -d'/' -f1
+  920  sudo docker images
+  921  ./Jenkins/
+  922  docker login
+  923  cd Jenkins/
+  924  ls
+  925  sudo chmod +x rebuild_dockerfile_jenkins.sh 
+  926  ./rebuild_dockerfile_jenkins.sh 
+  927  cd ..
+  928  ./setup_cluster_and_jenkins.sh 
+  929  sudo $ kubectl apply -f https://raw.githubusercontent.com/cirolini/jenkins-docker-kubectl/master/k8s_jenkins.yaml
+  930  sudo kubectl apply -f https://raw.githubusercontent.com/cirolini/jenkins-docker-kubectl/master/k8s_jenkins.yaml
+  931  sudo kubectl apply -f https://raw.githubusercontent.com/cirolini/jenkins-docker-kubectl/master/k8s_registry.yaml
+  932  sudo kubectl delete -f https://raw.githubusercontent.com/cirolini/jenkins-docker-kubectl/master/k8s_registry.yaml
+  933  sudo kubectl delete -f https://raw.githubusercontent.com/cirolini/jenkins-docker-kubectl/master/k8s_jenkins.yaml
+  934  ./setup_cluster_and_jenkins.sh 
+  935  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}'
+  936  docker login
+  937  ./setup_cluster_and_jenkins.sh 
+  938  cd Jenkins/
+  939  ./rebuild_dockerfile_jenkins.sh 
+  940  cd ..
+  941  ./setup_cluster_and_jenkins.sh 
+  942  cd Jenkins/
+  943  ./rebuild_dockerfile_jenkins.sh 
+  944  cd ::
+  945  cd ..
+  946  ./setup_cluster_and_jenkins.sh 
+  947  sudo chmod +x setup_jenkins.sh 
+  948  sudo chmod +x setup_cluster_and_jenkins.sh 
+  949  ./setup_cluster.sh 
+  950  sudo docker ps
+  951  sudo docker images
+  952  sudo docker rmi giacomoalfani/jenkins_custom
+  953  sudo docker images
+  954  sudo docker rmi f547cd708742
+  955  sudo docker images
+  956  sudo kubectl get all -A
+  957  sudo docker ps -a
+  958  sudo apt update
+  959  sudo apt upgrade
+  960  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+  961  sudo kubectl get nodes
+  962  sudo kubectl get nodes -o wide
+  963  cd DevOps_Pipeline_Kubernetes/
+  964  sudo kubectl get nodes
+  965  sudo kubectl get pods -A
+  966  sudo kubectl cluster-info
+  967  sudo kubectl cluster-info -o wide
+  968  sudo kubectl get nodes
+  969  sudo kubectl get nodes -o wide
+  970  kubectl get pods -n argocd -o wide
+  971  sudo kubectl get pods -n argocd -o wide
+  972  sudo chmod +x ./setup_argocd.sh 
+  973  sudo kubectl get all -A
+  974  ./setup_cluster.sh 
+  975  sudo kubectl get nodes
+  976  sudo kubectl create namespace argocd
+  977  sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  978  sudo kubectl get pods -n argocd
+  979  sudo sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+  980  cd DevOps_Pipeline_Kubernetes/
+  981  nohup sudo kubectl port-forward svc/argocd-server -n argocd 8081:443 > /dev/null 2>&1 &
+  982  sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+  983  sudo kubectl get all -A
+  984  sudo kubectl get pods -n argocd [-o wide]
+  985  sudo kubectl get pods -n argocd -o wide
+  986  ./setup_argocd.sh 
+  987  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+  988  sudo kubectl get pods -n argocd -o wide
+  989  sudo rm /usr/local/bin/argocd
+  990  rm -rf ~/.config/argocd
+  991  sudo kubectl delete namespace argocd
+  992  sudo kubectl get nodes
+  993  sudo kubectl create namespace argocd
+  994  sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+  995  sudo kubectl get pods -n argocd -o wide
+  996  cd ..
+  997  sudo kubectl get pods -n argocd -o wide
+  998  sudo rm /usr/local/bin/argocd
+  999  rm -rf ~/.config/argocd
+ 1000  sudo kubectl get pods -n argocd -o wide
+ 1001  sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1002  sudo kubectl get pods -n argocd -o wide
+ 1003  cd DevOps_Pipeline_Kubernetes/
+ 1004  sudo rm /usr/local/bin/argocd
+ 1005  cd /usr/local/bin/
+ 1006  ls
+ 1007  cd home
+ 1008  cd
+ 1009  cd ASDN_project/DevOps_Pipeline_Kubernetes/
+ 1010  sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1011  sudo kubectl get pods -n argocd -o wide
+ 1012  sudo apt update
+ 1013  sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1014  sudo kubectl create namespace argocd
+ 1015  sudo kubectl delete namespace argocd
+ 1016  exit
+ 1017  sudo docker ps
+ 1018  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+ 1019  cd /usr/local/bin/
+ 1020  ls
+ 1021  cd
+ 1022  sudo cat ~/.config/argocd
+ 1023  ls -la
+ 1024  cd .config/
+ 1025  ls
+ 1026  cd
+ 1027  cd ASDN_project/DevOps_Pipeline_Kubernetes/
+ 1028  sudo kubectl get namespaces
+ 1029  sudo kubectl get pods
+ 1030  sudo kubectl get pods -o wide
+ 1031  sudo kubectl get all
+ 1032  sudo kubectl get nodes
+ 1033  sudo kubectl get nodes -o wide
+ 1034  sudo kubectl get all -A
+ 1035  sudo kubectl logs <pod-name> -n argocd
+ 1036  sudo kubectl get pods -n argocd
+ 1037  kubectl exec -it argocd-application-controller-0  -n argocd -- /bin/sh
+ 1038  sudo kubectl exec -it argocd-application-controller-0  -n argocd -- /bin/sh
+ 1039  sudo kubectl exec -it argocd-repo-server-bb5d9cc8b-r6k4f  -n argocd -- /bin/sh
+ 1040  sudo kubectl get crds
+ 1041  cd DevOps_Pipeline_Kubernetes/
+ 1042  ls
+ 1043  sudo kubectl get pods -n argocd -o wide
+ 1044  sudo kubectl get pods -o wide
+ 1045  sudo kubectl get nodes
+ 1046  sudo kubectl create namespace argocd
+ 1047  sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1048  sudo kubectl get pods -n argocd -o wide
+ 1049  sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+ 1050  sudo kubectl get pods -n argocd -o wide
+ 1051  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+ 1052  sudo apt purge chromium
+ 1053  sudo apt autoremove
+ 1054  sudo apt update
+ 1055  sudo apt search chromium-browser
+ 1056  sudo apt search chromium
+ 1057  sudo apt update
+ 1058  sudo apt install chromium
+ 1059  chromium
+ 1060  sudo apt remove chromium
+ 1061  sudo kubectl port-forward svc/argocd-server -n argocd 8081:443 &
+ 1062  sudo kubectl get pods all
+ 1063  sudo kubectl get all
+ 1064  sudo kubectl get nodes
+ 1065  sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1066  sudo kubectl delete namespace argocd
+ 1067  sudo kubectl get nodes
+ 1068  sudo kubectl create namespace argocd
+ 1069  sudo kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1070  sudo kubectl get pods -n argocd -o wide
+ 1071  sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+ 1072  kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+ 1073  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d &
+ 1074  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+ 1075  SUDO DOCKER PS
+ 1076  sudo docker ps
+ 1077  sudo kubectl get nodes
+ 1078  sudo kubectl get pods
+ 1079  sudo kubectl get all
+ 1080  kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1081  kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml --validate=false
+ 1082  sudo kubectl get pods -n kube-system
+ 1083  kind delete cluster
+ 1084  ./setup-cluster.sh 
+ 1085  kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1086  kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml --validate=false
+ 1087  sudo kubectl get pods -n kube-system
+ 1088  sudo kubectl config view
+ 1089  sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml --validate=false
+ 1090  sudo kubectl get pods --namespace tekton-pipelines
+ 1091  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml --validate=false
+ 1092  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1093  sudo kubectl get pods --namespace tekton-pipelines
+ 1094  sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1095  sudo kubectl get pods --namespace tekton-pipelines
+ 1096  sudo kubectl logs tekton-pipelines-controller-775556cc45-bqmqt -n tekton-pipelines
+ 1097  sudo kind delete cluster
+ 1098  sudo kind create cluster --image kindest/node:v1.28.0
+ 1099  ./setup-cluster.sh 
+ 1100  sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1101  sudo kubectl get pods --namespace tekton-pipelines
+ 1102  sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/tekton-dashboard-release.yaml
+ 1103  sudo kubectl apply --filename https://github.com/tektoncd/dashboard/releases/download/v1.11.1/tekton-dashboard-release.yaml
+ 1104  sudo kubectl apply --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
+ 1105  sudo kubectl get pods --namespace tekton-pipelines
+ 1106  sudo kubectl port-forward svc/tekton-dashboard -n tekton-pipelines 9097:9097
+ 1107  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
+ 1108  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1109  helm version
+ 1110  sudo helm version
+ 1111  kubectl helm version
+ 1112  sudo kubectl --help
+ 1113  sudo curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+ 1114  helm version
+ 1115  helm repo add gitlab https://charts.gitlab.io/
+ 1116  helm repo update
+ 1117  sudo kubectl create namespace gitlab
+ 1118  sudo kubectl get svc --namespace gitlab
+ 1119  helm install gitlab gitlab/gitlab --namespace gitlab --set global.hosts.domain=example.com --set global.hosts.externalIP=localhost:8080
+ 1120  helm install gitlab gitlab/gitlab --namespace gitlab --set global.hosts.domain=example.com --set global.hosts.externalIP=localhost:38180
+ 1121  helm install gitlab gitlab/gitlab --namespace gitlab --set global.hosts.domain=example.com --set global.hosts.externalIP=localhost:32958
+ 1122  helm install gitlab gitlab/gitlab --namespace gitlab --set global.hosts.domain=example.com --set global.hosts.externalIP=localhost
+ 1123  helm install gitlab gitlab/gitlab --namespace gitlab --set global.hosts.domain=example.com --set global.hosts.externalIP=localhost:8080
+ 1124  sudo kubectl port-forward svc/gitlab-webservice-default -n gitlab 8080:8080
+ 1125  sudo kubectl delete namspace gitlab
+ 1126  sudo kubectl create namespace gitlab
+ 1127  sudo kubectl delete namespace gitlab
+ 1128  sudo kubectl get pods
+ 1129  sudo kubectl get nodes
+ 1130  sudo kubectl get all
+ 1131  sudo chmod +x setup-argocd-2.sh 
+ 1132  ./setup-argocd-2.sh 
+ 1133  sudo kubectl port-forward svc/argocd-server -n argocd 8081:443
+ 1134  sudo kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 -d
+ 1135  cd devops-pipeline-kubernetes/
+ 1136  sudo chmod +x setup-tekton.sh 
+ 1137  sudo kubectl get nodes
+ 1138  sudo kubectl get pods
+ 1139  sudo kubectl get all -A
+ 1140  ls
+ 1141  sudo ./setup-cluster.sh 
+ 1142  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
+ 1143  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1144  sudo chmod +x test-countdown.sh 
+ 1145  ./test-countdown.sh 
+ 1146  ./test-countdown.sh 10
+ 1147  sudo kubectl get pods --namespace tekton-pipelines --watch
+ 1148  sudo kubectl ger pods -A
+ 1149  sudo kubectl get pods -A
+ 1150  #argocd-server-9d6c97757-wdqhk
+ 1151  sudo kubectl exec -it argocd-server-9d6c97757-wdqhk -n argocd -- /bin/sh
+ 1152  sudo kubectl delete -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 1153  sudo kubectl create namespace argocd
+ 1154  sudo kubectl delete namespace argocd
+ 1155  cd devops-pipeline-kubernetes/
+ 1156  sudo kubectl get pods
+ 1157  sudo kubectl get nodes
+ 1158  ./setup-tekton.sh 
+ 1159  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/dashboard/latest/release-full.yaml
+ 1160  sudo kubectl delete --filename https://storage.googleapis.com/tekton-releases/pipeline/latest/release.yaml
+ 1161  sudo kubectl get pods
+ 1162  sudo kubectl get nodes
+ 1163  sudo kubectl get all -A
+ 1164  ./setup-jenkins.sh 
+ 1165  sudo kubectl logs  | awk '/proceed to installation:/{getline; getline; print}'
+ 1166  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}')
+ 1167  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}'
+ 1168  sudo kubectl get pods
+ 1169  ./setup-jenkins.sh 
+ 1170  ./setup-cluster.sh 
+ 1171  ./setup-jenkins.sh 
+ 1172  sudo kubectl logs $(sudo kubectl get pods -o wide | grep jenkins | awk '{print $1}') | awk '/proceed to installation:/{getline; getline; print}'
+ 1173  ./setup-cluster-and-jenkins.sh 
+ 1174  ./setup-cluster.sh 
+ 1175  ./setup-jenkins.sh 
+ 1176  ./setup-cluster.sh 
+ 1177  sudo kubectl get pods
+ 1178  sudo kubectl get nodes
+ 1179  sudo kubectl get all -A
+ 1180  sudo kubectl get pods
+ 1181  sudo kubectl get nodes
+ 1182  ./setup-jenkins.sh 
+ 1183  cd
+ 1184  cd ASDN_project/
+ 1185  cd devops-pipeline-kubernetes/
+ 1186  ls
+ 1187  ./setup-jenkins.sh 
+ 1188  sudo kubectl apply -f jenkins/jenkins-deployment.yaml 
+ 1189  sudo kubectl apply -f jenkins/jenkins-service.yaml 
+ 1190  sudo kubectl create serviceaccount jenkins-sa
+ 1191  sudo kubectl apply -f jenkins/jenkins-sa-binding.yaml 
+ 1192  ./setup-jenkins.sh 
+ 1193  sudo kubectl exec $(sudo kubectl get pods --all-namespaces | grep jenkins | awk '{print $2}') -- cat /var/jenkins_home/secrets/initialAdminPassword
+ 1194  sudo kubectl get nodes
+ 1195  sudo kubectl get nodes -o wide
+ 1196  sudo kubectl get pods -A
+ 1197  ./setup-cluster.sh 
+ 1198  ./setup-jenkins.sh 
+ 1199  sudo kubectl get pods
+ 1200  sudo kubectl get pods -o wide
+ 1201  sudo kubectl exec -it jenkins-5b8d794488-fk694 -- /bin/bash
+ 1202  ./setup-jenkins.sh 
+ 1203  cd
+ 1204  cd /
+ 1205  ls
+ 1206  cd snap/
+ 1207  ls
+ 1208  cd kubectl/
+ 1209  cd
+ 1210  cd A
+ 1211  cd ASDN_project/
+ 1212  cd devops-pipeline-kubernetes/
+ 1213  ls
+ 1214  cd ASDN_project/devops-pipeline-kubernetes/
+ 1215  ls -la | grep kube
+ 1216  ls -la
+ 1217  cd
+ 1218  ls -al
+ 1219  ls -la
+ 1220  cd .config
+ 1221  ls
+ 1222  cd
+ 1223  echo ${KUBECONFIG}
+ 1224  sudo kubectl get pods
+ 1225  cd ASDN_project/
+ 1226  ls -la
+ 1227  cd devops-pipeline-kubernetes/
+ 1228  ls -la
+ 1229  cd cluster/
+ 1230  ls -la
+ 1231  cd ..
+ 1232  cd
+ 1233  cat /.kube/config
+ 1234  cat ./.kube/config
+ 1235  cd /
+ 1236  ls -la
+ 1237  find kube
+ 1238  cd snap/
+ 1239  ls
+ 1240  cd kubectl/
+ 1241  ls
+ 1242  ls -la
+ 1243  cd /
+ 1244  ls
+ 1245  cd etc/
+ 1246  ls
+ 1247  cd /
+ 1248  find .kube
+ 1249  find kind
+ 1250  cd opt/
+ 1251  ls
+ 1252  cd
+ 1253  sudo kubectl get services
+ 1254  cd /
+ 1255  ls -la
+ 1256  cd
+ 1257  ls -la
+ 1258  cd .minikube
+ 1259  ls -la
+ 1260  cd config/
+ 1261  ls
+ 1262  ls -la
+ 1263  cd ..
+ 1264  ls
+ 1265  cd snap/
+ 1266  ls
+ 1267  cd kubectl/
+ 1268  ls
+ 1269  cd
+ 1270  cd .kube/config
+ 1271  sudo kubectl cluster-info
+ 1272  sudo kubectl cluster-info dump
+ 1273  sudo kind get kubeconfig -path --name=clusterdeplo
+ 1274  sudo kind get kubeconfigpath --name=clusterdeplo
+ 1275  sudo kind get kubeconfig-path --name=clusterdeplo
+ 1276  sudo kind get kubeconfig-path --name clusterdeplo
+ 1277  sudo kind get kubeconfig-path -n clusterdeplo
+ 1278  sudo kind get kubeconfig-path --name=clusterdeplo
+ 1279  sudo kind get kubeconfig-path --help
+ 1280  sudo kind get kubeconfig-path clusters
+ 1281  sudo kind get --help
+ 1282  sudo kind get kubeconfig
+ 1283  sudo kubectl get nodes -o wide
+ 1284  sudo kubectl get services -n kube-system
+ 1285  sudo kubectl get services -A
+ 1286  sudo kubectl get all -A
+ 1287  sudo kubectl get pod kube-apiserver-kind-control-plane -o wide
+ 1288  sudo kubectl get pods -o wide
+ 1289  sudo kubectl get pods -A -o wide
+ 1290  sudo kubectl get sa
+ 1291  sudo kubectl get sa -o yaml
+ 1292  cd ASDN_project/devops-pipeline-kubernetes/
+ 1293  cd jenkins/
+ 1294  sudo kubectl apply -f jenkins-sa-binding.yaml 
+ 1295  sudo kubectl apply -f jenkins-deployment.yaml 
+ 1296  sudo kubectl get CluterRoleBinding
+ 1297  sudo kubectl get cluterrolebinding
+ 1298  sudo kubectl get clusterrolebinding
+ 1299  sudo kubectl get role
+ 1300  sudo kubectl get clusterrole
+ 1301  sudo kubectl get clusterrole cluster-admin -o yaml
+ 1302  ./setup-jenkins.sh 
+ 1303  sudo docker ps
+ 1304  sudo kubectl get pods
+ 1305  ./setup-cluster.sh 
+ 1306  ./setup-jenkins.sh 
+ 1307  sudo kubectl get pods
+ 1308  ./setup-cluster.sh 
+ 1309  sudo kubectl get pods
+ 1310  sudo kubectl get nodes
+ 1311  sudo kubectl get pods
+ 1312  ./setup-jenkins.sh 
+ 1313  sudo kubectl exec $(sudo kubectl get pods --all-namespaces | grep jenkins | awk '{print $2}') -- cat /var/jenkins_home/secrets/initialAdminPassword
+ 1314  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+ 1315  sudo kubectl get pods
+ 1316  #jenkins-5457b4b7bd-ks56k
+ 1317  sudo kubectl logs jenkins-5457b4b7bd-ks56k -n <namespace> | grep -A 5 "Please use the following password to proceed to installation:"
+ 1318  sudo kubectl logs jenkins-5457b4b7bd-ks56k
+ 1319  sudo kubectl logs $(sudo kubectl get pods --no-headers -o custom-columns=":metadata.name" | grep jenkins)
+ 1320  sudo kubectl logs $(sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1321  sudo kubectl get pods
+ 1322  sudo kubectl get pods | awk '/jenkins/{print $1}'
+ 1323  echo $(sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1324  echo "Jenkins password: " $(sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1325  sudo kubectl get pods | awk '/jenkins/{print $1}'
+ 1326  sudo kubectl get jenkins-5457b4b7bd-ks56k
+ 1327  sudo kubectl get pod jenkins-5457b4b7bd-ks56k
+ 1328  echo (sudo kubectl get pod $(sudo kubectl get pods | awk '/jenkins/{print $1}'))
+ 1329  sudo kubectl get pods | awk '/jenkins/{print $1}'
+ 1330  echo $(sudo kubectl get pod $(sudo kubectl get pods | awk '/jenkins/{print $1}'))
+ 1331  echo $(sudo kubectl get log $(sudo kubectl get pods | awk '/jenkins/{print $1}'))
+ 1332  sudo kubectl get logs jenkins-5457b4b7bd-ks56k
+ 1333  sudo kubectl logs $(sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1334  sudo kubectl logs $(sudo kubectl get pods | awk '/jenkins/{print $1}') | awk '/Please use the following password/{getline; print}'
+ 1335  sudo kubectl get pods
+ 1336  sudo kubectl exec -it jenkins-5457b4b7bd-ks56k -- /bin/bash
+ 1337  sudo docker build -t giacomoalfani/jenkins_custom .
+ 1338  sudo docker push giacomoalfani/jenkins_custom:latest
+ 1339  ./setup-jenkins.sh 
+ 1340  sudo kubectl get log $(sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1341  sudo kubectl get pods
+ 1342  sudo kubectl get log jenkins-5b8d794488-m2csk
+ 1343  sudo kubectl get logs jenkins-5b8d794488-m2csk
+ 1344  sudo kubectl log
+ 1345  sudo kubectl logs
+ 1346  sudo kubectl logs jenkins-5b8d794488-m2csk
+ 1347  cat /var/lib/jenkins/secrets/initialAdminPassword
+ 1348  sudo docker build -t giacomoalfani/jenkins_custom .
+ 1349  sudo docker push giacomoalfani/jenkins_custom:latest
+ 1350  ./setup-jenkins.sh 
+ 1351  sudo kubectl get pods | awk '/jenkins/{print $1}')
+ 1352  sudo kubectl get pods | awk '/jenkins/{print $1}'
+ 1353  sudo kubectl get logs jenkins-5b8d794488-gx7pt
+ 1354  sudo kubectl logs jenkins-5b8d794488-gx7pt
+ 1355  sudo kubectl cluster-info
+ 1356  sudo kubectl get pods
+ 1357  sudo kubectl get pods -A
+ 1358  sudo kubectl get nodes
+ 1359  sudo kubectl get nodes -o wide
+ 1360  ./setup-cluster.sh 
+ 1361  sudo docker build -t giacomoalfani/jenkins_custom .
+ 1362  sudo docker push giacomoalfani/jenkins_custom:latest
+ 1363  ./setup-jenkins.sh 
+ 1364  echo $(sudo kubectl get log $(sudo kubectl get pods | awk '/jenkins/{print $1}'))
+ 1365  echo $(sudo kubectl get logs $(sudo kubectl get pods | awk '/jenkins/{print $1}'))
+ 1366  sudo kubectl get pods
+ 1367  sudo kubectl get logs jenkins-5b8d794488-6wb8d
+ 1368  sudo kubectl get log jenkins-5b8d794488-6wb8d
+ 1369  sudo kubectl logs jenkins-5b8d794488-6wb8d
+ 1370  ./setup-cluster.sh 
+ 1371  ./setup-jenkins.sh 
+ 1372  sudo kubectl get logs jenkins-5b8d794488-8sqbs
+ 1373  sudo kubectl get log jenkins-5b8d794488-8sqbs
+ 1374  sudo kubectl logs jenkins-5b8d794488-8sqbs
+ 1375  ./setup-cluster.sh 
+ 1376  cd ..
+ 1377  cd devops-pipeline-kubernetes/
+ 1378  cd jenkins/
+ 1379  sudo docker build -t giacomoalfani/jenkins_custom .
+ 1380  sudo docker push giacomoalfani/jenkins_custom:latest
+ 1381  cd ..
+ 1382  sudo kubectl build -t giacomoalfani/asdn_project:latest
+ 1383  sudo docker build -t giacomoalfani/asdn_project:latest
+ 1384  sudo docker build -t giacomoalfani/asdn_project:latest .
+ 1385  sudo docker push -t giacomoalfani/asdn_project:latest
+ 1386  sudo docker push giacomoalfani/asdn_project:latest
+ 1387  ./setup-cluster.sh 
+ 1388  ./setup-jenkins.sh 
+ 1389  sudo kubectl get pods
+ 1390  sudo kubectl get logs jenkins-5b8d794488-9vn4p
+ 1391  sudo kubectl logs jenkins-5b8d794488-9vn4p
+ 1392  cat  /var/jenkins_home/secrets/initialAdminPassword
+ 1393  sudo kubectl logs $(sudo kubectl get pods | awk '/jenkins/{print $1}') | awk '/Please use the following password/{getline; print}'
+ 1394  sudo kubectl logs (sudo kubectl get pods | awk '/jenkins/{print $1}') | awk '/Please use the following password/{getline; print}'
+ 1395  sudo kubectl logs $(sudo kubectl get pods | awk '/jenkins/{print $1}') | awk '/Please use the following password/{getline; print}'
+ 1396  sudo kubectl get pods
+ 1397  sudo exec -it jenkins-5b8d794488-9vn4p -- /bin/bash
+ 1398  sudo kubectl exec -it jenkins-5b8d794488-9vn4p -- /bin/bash
+ 1399  sudo kubectl get pods
+ 1400  sudo kubectl logs jenkins-7d796cb57b-9lkt9
+ 1401  sudo kubectl get nodes
+ 1402  sudo kubectl get pods
+ 1403  sudo kubectl get pods -o wide
+ 1404  cd jenkins/
+ 1405  sudo kubectl create -f jenkins-volume.yaml 
+ 1406  sudo kubectl apply -f jenkins-deployment-2.yaml 
+ 1407  sudo kubectl get pods
+ 1408  sudo kubectl get pods -w
+ 1409  sudo kubectl describe pods jenkins-2-7c979b7d44-nstdp
+ 1410  cd ..
+ 1411  sudo kubectl setup-cluster.sh 
+ 1412  ./setup-cluster.sh 
+ 1413  git clone https://github.com/scriptcamp/kubernetes-jenkins
+ 1414  cd jenkins-2/
+ 1415  ls -la
+ 1416  cd ..
+ 1417  ./setup-cluster.sh 
+ 1418  cd jenkins-2/
+ 1419  sudo kubectl apply -f namespace.yaml 
+ 1420  sudo kubectl apply -f serviceAccount.yaml 
+ 1421  sudo kubectl apply -f volume.yaml 
+ 1422  sudo kubectl get nodes -o wide
+ 1423  sudo kubectl get pods -o wide
+ 1424  sudo kubectl apply -f deployment.yaml 
+ 1425  sudo kubectl get pods
+ 1426  sudo kubectl get pods -A
+ 1427  sudo kubectl logs jenkins-56b6774bb6-sprcj
+ 1428  sudo kubectl logs jenkins-56b6774bb6-sprcj -A
+ 1429  sudo kubectl apply -f service.yaml 
+ 1430  sudo kubectl -n devops-tools get service-o wide
+ 1431  sudo kubectl -n devops-tools get service -o wide
+ 1432  sudo kubectl get nodes -o wide
+ 1433  sudo kubectl logs jenkins-56b6774bb6-sprcj
+ 1434  sudo kubectl logs jenkins-56b6774bb6-sprcj -A
+ 1435  sudo kubectl logs jenkins-56b6774bb6-sprcj -n devops-tools
+ 1436  sudo kubectl cluster-info
+ 1437  sudo kubectl get nodes
+ 1438  sudo docker ps
+ 1439  sudo docker ps -A
+ 1440  sudo docker ps all
+ 1441  sudo kubectl get pods -A
+ 1442  cd devops-pipeline-kubernetes/
+ 1443  ./setup-cluster.sh 
+ 1444  cd jenkins/
+ 1445  sudo kubectl apply -f 1-namespace.yaml 
+ 1446  sudo kubectl apply -f 2-serviceAccount.yaml 
+ 1447  sudo kubectl apply -f 3-volume.yaml 
+ 1448  sudo kubectl apply -f 4-deployment.yaml 
+ 1449  sudo kubectl apply -f 5-service.yaml 
+ 1450  sudo kubectl -n devops-tools get pods #prende nome pod
+ 1451  sudo kubectl -n devops-tools logs jenkins-59589d74f4-pghn8 #trova la password d'accesso inizale jenkins
+ 1452  sudo kubectl get pods
+ 1453  sudo kubectl get pods -A
+ 1454  sudo docker ps
+ 1455  sudo kubectl get nodes -o wide
+ 1456  sudo kubectl create token -n devops-tools jenkins-admin
+ 1457  sudo kubectl exec -it -n devops-tools jenkins-59589d74f4-pghn8 -- /bin/bash # entra nel pod di jenkins
+ 1458  ifconfig
+ 1459  ip a
+ 1460  sudo apt update
+ 1461  sudo apt upgrade
+ 1462  sudo apt update
+ 1463  sudo apt autoremove
+ 1464  sudo apt clean
+ 1465  exit
+ 1466  for pkg in docker.io docker-doc docker-compose podman-docker containerd runc; do sudo apt-get remove $pkg; done
+ 1467  sudo kubectl get pods -A
+ 1468  sudo kubectl exec -it jenkins-59589d74f4-pghn8 -- bin/bash
+ 1469  cd devops-pipeline-kubernetes/
+ 1470  sudo kubectl exec -it jenkins-59589d74f4-pghn8 -- bin/bash
+ 1471  sudo kubectl get jenkins-59589d74f4-pghn8
+ 1472  sudo kubectl get pod jenkins-59589d74f4-pghn8
+ 1473  sudo kubectl get pod jenkins-59589d74f4-pghn8 -n devops-tools
+ 1474  sudo kubectl exec -it jenkins-59589d74f4-pghn8 -n devops-tools -- bin/bash
+ 1475  sudo kubectl get node -o wide
+ 1476  sudo docker ps
+ 1477  sudo kubectl get pods -A
+ 1478  sudo kubectl get pods -A -o wide
+ 1479  sudo kubectl exec -it jenkins-59589d74f4-pghn8 -n devops-tools -- bin/bash
+ 1480  sudo docker exec -it kind-worker -- bin/bash
+ 1481  sudo docker ps
+ 1482  sudo docker exex -it kind-worker bash
+ 1483  sudo docker exec -it kind-worker bash
+ 1484  cd jenkins/
+ 1485  ls
+ 1486  sudo kubectl apply -f 4-deployment.yaml 
+ 1487  sudo docker exec -it kind-worker -- bin/bash
+ 1488  sudo docker exec -it kind-worker bash
+ 1489  sudo kubectl exec -it a89efbbceffa -n devops-tools -- bin/bash
+ 1490  sudo kubctl get pods -A
+ 1491  sudo kubectl get pods -A
+ 1492  sudo kubectl exec -it jenkins-5bdbcbd7ff-244n5 -n devops-tools -- bin/bash
+ 1493  sudo kubectl get pods -A -o wide
+ 1494  sudo kubectl exec -it jenkins-5bdbcbd7ff-244n5 -n devops-tools -- bin/bash
+ 1495  ls
+ 1496  sudo kubectl apply -f 2-serviceAccount.yaml 
+ 1497  sudo kubectl exec -it jenkins-5bdbcbd7ff-244n5 -n devops-tools -- bin/bash
+ 1498  sudo apt update
+ 1499  sudo apt install ansible #installare ansible
+ 1500  cd ..
+ 1501  cd cluster/
+ 1502  ls
+ 1503  ls -la
+ 1504  udo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1505  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1506  mkdir .kube
+ 1507  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1508  sudo apt install python3-kubernetes #per far funzionare il tutto
+ 1509  docker login
+ 1510  ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
+ 1511  cd ..
+ 1512  cd ansible/
+ 1513  ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
+ 1514  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1515  cd ..
+ 1516  cd cluster/
+ 1517  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1518  cd ..
+ 1519  cd ansible/
+ 1520  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1521  ls -la
+ 1522  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1523  cd ..
+ 1524  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1525  cd ..
+ 1526  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1527  cd devops-pipeline-kubernetes/
+ 1528  cd cluster/
+ 1529  ls -la
+ 1530  cd .kube/
+ 1531  ls
+ 1532  ls -la
+ 1533  sudo chmod +x config 
+ 1534  cd ..
+ 1535  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1536  cd cluster/
+ 1537  ls
+ 1538  sudo kind get kubeconfig | sudo tee ./.kube/config 1> /dev/null
+ 1539  cd ..
+ 1540  cd ansible/
+ 1541  ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
+ 1542  export KUBECONFIG=/home/giacomo/ASDN_project/devops-pipeline-kubernetes/cluster/.kube/config
+ 1543  ansible-playbook -i giacomo-inventory.ini load-balancer.yaml
+ 1544  ansible-playbook -i giacomo-inventory.ini up-scaler.yaml
+ 1545  sudo kubectl get pods
+ 1546  ansible-playbook -i giacomo-inventory.ini down-scaler.yaml
+ 1547  sudo kubectl get pods
+ 1548  sudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ 1549  sudo helm repo add grafana https://grafana.github.io/helm-charts
+ 1550  sudo helm repo update
+ 1551  sudo kubectl create namespace monitoring
+ 1552  helm install prometheus prometheus-community/prometheus --namespace monitoring
+ 1553  helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ 1554  sudo helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ 1555  sudo helm install prometheus prometheus-community/prometheus --namespace monitoring
+ 1556  sudo helm install grafana grafana/grafana --namespace monitoring
+ 1557  sudo kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+ 1558  sudo kubectl port-forward svc/grafana 3000:80 -n monitoring
+ 1559  sudo kubectl port-forward -n monitoring svc/grafana 3000:80
+ 1560  cd ../..
+ 1561  sudo kubectl port-forward -n monitoring svc/grafana 3000:80
+ 1562  sudo kubectl port-forward -n monitoring svc/grafana 3001:80
+ 1563  Which debian
+ 1564  which debian
+ 1565  cat /etc/os-release 
+ 1566  lsb_release -a
+ 1567  hostnamectl
+ 1568  which kubectl 
+ 1569  which docker
+ 1570  which kind
+ 1571  which jenkins
+ 1572  which ngrok
+ 1573  wwhich ansible
+ 1574  which ansible
+ 1575  which prometheus
+ 1576  which grafana
+ 1577  which helm
+ 1578  which microk8s
+ 1579  history > grep helm
+ 1580  history | grep helm
+ 1581  which helm
+ 1582  history | grep docker
+ 1583  history | grep ngrok
+ 1584  sudo kubectl get nodes -o wide
+ 1585  sudo docker ps
+ 1586  curl 0.0.0.0:8080
+ 1587  curl http://0.0.0.0:8080
+ 1588  curl http://127.0.0.1:8080
+ 1589  curl http://127.0.0.1:80
+ 1590  sudo kind get cluster
+ 1591  kind get cluster
+ 1592  sudo kind gest cluster-info
+ 1593  sudo kind cluster-info
+ 1594  sudo get clusters
+ 1595  sudo kind get clusters
+ 1596  sudo kind get nodes
+ 1597  kind get nodes
+ 1598  sudo kubectl get svc
+ 1599  sudo kubectl get svc -o wide
+ 1600  sudo kubectl get pods -A
+ 1601  sudo kubectl get pods -A -o wide
+ 1602  history
+ 1603  ls
+ 1604  cd notes/
+ 1605  ls
+ 1606  history > bash-history2.txt
