@@ -79,21 +79,28 @@ kubectl get pods
 kubectl get pods -A
 kubectl cluster-info
 
+
 # UTILITA'
 
 # per committare e pushare l'immagine del pod modificato in questo modo fare:
 
-# entrare nel pod
-sudo kubectl exec -it <NOME POD> -n devops-tools -- /bin/bash
-# sudo kubectl exec -it jenkins-5bdbcbd7ff-8xr5t -n devops-tools -- /bin/bash #esempio
+# da terminale, dove mi sto mettendo io com "./" copia tutte le conf del pod in una cartella:
+sudo kubectl cp <POD NAME>:/var/jenkins_home ./jenkins_home -n devops-tools
 
-sudo docker commit <container-id> <your-dockerhub-username>/<image-name>:<tag>
-#sudo docker commit jenkins-5bdbcbd7ff-8xr5t giacomoalfani/jenkins_custom_complete:latest #esempio
+# creo un Dockerfile così:
+FROM jenkins/jenkins:lts
+COPY jenkins_home /var/jenkins_home
 
+e lo buildo:
+sudo docker build -t <your-dockerhub-username>/jenkins-custom:latest .
+# sudo docker build -t giacomoalfani/jenkins_custom_complete:latest . #esempio
+
+#login dockerhub
 sudo docker login
 
-sudo docker push <your-dockerhub-username>/<image-name>:<tag>
-#sudo docker push giacomoalfani/jenkins_custom_complete:latest #esempio
+#push su Dockerhub
+sudo docker push <your-dockerhub-username>/jenkins-custom:latest
+# sudo docker push giacomoalfani/jenkins_custom_complete:latest
 
 #rimozione immagine committata
 sudo docker rmi giacomoalfani/jenkins_custom_complete:latest

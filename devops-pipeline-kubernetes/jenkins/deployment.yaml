@@ -19,8 +19,10 @@ spec:
       serviceAccountName: jenkins-admin
       containers:
         - name: jenkins
-        #  image: jenkins/jenkins:lts  
+          #image: jenkins/jenkins:lts  
           image: giacomoalfani/jenkins_custom:latest
+          #image: giacomoalfani/jenkins_custom_complete:latest #with docker inside and docker socket present
+
           resources:
             limits:
               memory: "2Gi"
