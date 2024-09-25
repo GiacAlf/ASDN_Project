@@ -10,20 +10,12 @@
 sudo kubectl -n devops-tools get pods #prende nome pod
 sudo kubectl -n devops-tools logs < NOME POD TROVATO> #trova la password d'accesso inizale jenkins
 
-sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm
+sudo kubectl create token -n devops-tools jenkins-admin #crea il token dalla vm da usare nel pod di jenkins dopo
 sudo kubectl exec -it -n devops-tools <NOME PDO TROVATO> -- /bin/bash # entra nel pod di jenkins
 
-# inizialmente questi comandi erano nel dockerfile ma poi sostituiti da comandi manuali
+# entrare nel pod di jenkins:
 
-
-# install kubernetes via curl
-#RUN curl -LO https://dl.k8s.io/release/v1.31.0/bin/linux/arm64/kubectl
-
-# sposto cartella
-#RUN sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-Comandi dentro pod jenkins:
-
+# INIZIO COMANDI NEL POD
 # installazione kubectl
 sudo curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/arm64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
@@ -31,24 +23,23 @@ sudo chmod +x kubectl
 mkdir -p ~/.local/bin
 sudo mv ./kubectl ~/.local/bin/kubectl
 
-# Configura kubectl con il token e il server API del cluster Kubernetes
-kubectl config set-credentials jenkins-admin --token=<TOKEN CREATO PRECEDENTEMENTE>
-
-kubectl config set-cluster clusterdeplo --server=https://172.18.0.3:6443 --insecure-skip-tls-verify=true #metterci l'ip del control-plane
+kubectl config set-credentials jenkins-admin --token=<TOKEN CREATO PRECEDENTEMENTE> #Configura kubectl con il token e il server API del cluster Kubernetes
+kubectl config set-cluster clusterdeplo --server=https://172.18.0.4:6443 --insecure-skip-tls-verify=true #metterci l'ip del control-plane
 kubectl config set-context clusterdeplo --cluster=clusterdeplo --user=jenkins-admin #Crea un contesto associando il cluster e l'utente
 kubectl config use-context clusterdeplo #usa il nuovo contesto appena creato
 
-#installazione docker generale
-https://docs.docker.com/engine/install/debian/ #segui le istruzioni
+# FINE COMANDI NEL POD
 
 IMPORTANTE!!!
 per risolvere il problema che jenkins non può usare docker, per via dell'accesso al demone, fare la seguente cosa:
 
-# NODO: Installare docker nel nodo dove sta jenkins, ossia nel container docker (nodo dove è jenkins di Giacomo: kind-worker o a89efbbceffa)
+# entrare nel NODO dove c'è jenkins: Installare docker nel nodo dove sta jenkins, ossia nel container docker 
+(nodo dove è jenkins di Giacomo: kind-worker o a89efbbceffa)
 si dovrebbero avere già i permessi di root ma nel caso fare su -, però ce li abbiamo i permessi di root (verificato).
 
-Comandi:
-sudo docker exec -it kind-worker bash #per entrare nel nodo
+sudo docker exec -it kind-worker bash #per entrare nel nodo # per entrare nel nodo
+
+# eseguire i seguenti comandi:
 
 apt-get update
 apt-get install -y ca-certificates curl gnupg lsb-release
@@ -61,11 +52,13 @@ docker --version #per verifica
 systemctl start docker #demone parte subito
 systemctl enable docker #demone parte all'avvio sempre
 
-# POD: Installare docker come da procedura https://docs.docker.com/engine/install/debian/
+# uscire dal nodo ed entrare nel pod
+
+# nel POD: Installare docker come da procedura https://docs.docker.com/engine/install/debian/
 in questo modo il pod ha docker ma userà il demone di docker del nodo, in cui possiamo fare systemclt, mentr nel pod no.
 
-# TERMINALE: fuori dal pod e dal nodo, dal terminale "normale", applicare il nuovo 4-deployment.yaml dove è stata aggiunta la socket.
-
+# da TERMINALE: fuori dal pod e dal nodo, dal terminale "normale", applicare il nuovo deployment.yaml dove è stata aggiunta la socket
+sudo kubectl apply -f deployment.yaml
 
 #Installare plugin docker in jenkins:
 #   - docker pupeline
@@ -85,3 +78,22 @@ github integration, git, github branch source, pipeline github, github authentic
 kubectl get pods
 kubectl get pods -A
 kubectl cluster-info
+
+# UTILITA'
+
+# per committare e pushare l'immagine del pod modificato in questo modo fare:
+
+# entrare nel pod
+sudo kubectl exec -it <NOME POD> -n devops-tools -- /bin/bash
+# sudo kubectl exec -it jenkins-5bdbcbd7ff-8xr5t -n devops-tools -- /bin/bash #esempio
+
+sudo docker commit <container-id> <your-dockerhub-username>/<image-name>:<tag>
+#sudo docker commit jenkins-5bdbcbd7ff-8xr5t giacomoalfani/jenkins_custom_complete:latest #esempio
+
+sudo docker login
+
+sudo docker push <your-dockerhub-username>/<image-name>:<tag>
+#sudo docker push giacomoalfani/jenkins_custom_complete:latest #esempio
+
+#rimozione immagine committata
+sudo docker rmi giacomoalfani/jenkins_custom_complete:latest
