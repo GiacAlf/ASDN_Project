@@ -104,4 +104,3 @@ sudo docker push <your-dockerhub-username>/jenkins-custom:latest
 
 #rimozione immagine committata
 sudo docker rmi giacomoalfani/jenkins_custom_complete:latest
-
